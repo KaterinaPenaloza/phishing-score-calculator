@@ -28,7 +28,7 @@ function calculateScore() {
     for (let i = 1; i < tblA1_2.rows.length; i++) {
         const selectElement = tblA1_2.rows[i].cells[1].querySelector('select');
         if (selectElement) {
-            const answer = parseInt(selectElement.value);
+            const answer = parseInt(selectElement.value, 10) || 0;
             score2 += answer;
         }
     }
@@ -60,7 +60,7 @@ function calculateScore() {
     for (let i = 1; i < tblA2.rows.length; i++) {
         const selectElement = tblA2.rows[i].cells[1].querySelector('select');
         if (selectElement) {
-            const answer = parseInt(selectElement.value);
+            const answer = parseInt(selectElement.value, 10) || 0;
             // Si no es la última fila, sumar el valor
             if (i < tblA2.rows.length - 1) {
                 score3 += answer;
