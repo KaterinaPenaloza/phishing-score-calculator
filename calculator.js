@@ -221,10 +221,10 @@ function determineFinalCategory(categoryA1, categoryA2) {
     const finalCategoryCell = document.getElementById("finalCategory");
     const finalDescriptionCell = document.getElementById("finalCategoryDescription");
     const descriptions = {
-        'Muy dificil': 'Muy dificil explicación, Lorem ipsum dolor sit amet, consectetur adipiscing elitt Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-        'Moderadamente dificil': 'Moderadamente dificil explicación, Lorem ipsum dolor sit amet, consectetur adipiscing elitt Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-        'Moderadamente a menos dificil': 'Moderadamente a menos dificil explicación, Lorem ipsum dolor sit amet, consectetur adipiscing elitt Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-        'Menos dificil': 'Menos dificil explicación, Lorem ipsum dolor sit amet, consectetur adipiscing elitt Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        'Muy dificil': 'Pocas señales observables y una premisa muy alineada con el contexto del destinatario. El correo parece legítimo y casi no da pistas para sospechar, por lo que es esperable que muchos destinatarios no lo identifiquen como phishing.',
+        'Moderadamente dificil': 'Combinación intermedia entre señales y alineación. Existen pistas, pero el contexto es lo bastante creíble como para que una parte de los destinatarios no las note. Detectarlo exige atención y conocimiento del contexto laboral.',
+        'Moderadamente a menos dificil': 'Hay una cantidad razonable de señales y el contenido encaja poco con lo que el destinatario espera, de modo que las inconsistencias son relativamente visibles. Una persona atenta debería detectarlo, aunque no está garantizado.',
+        'Menos dificil': 'Abundan las señales y el mensaje casi no calza con el contexto del destinatario. Es el escenario más fácil de detectar como phishing.',
     };
     let finalCategory = '';
     // Combinar categorías y subcategorías
