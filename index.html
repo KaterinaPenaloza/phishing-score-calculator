@@ -64,8 +64,7 @@
         <!-- Pregunta 2 -->
         <tr>
             <td>
-                ¿El nombre del dominio utilizado en la dirección de correo electrónico del remitente es de una entidad
-                reconocida?
+                ¿Un nombre de dominio utilizado en la dirección de correo del remitente es plausiblemente similar al dominio de una entidad reconocible?
             </td>
             <td>
                 <select name="A1Q2" onchange="calculateScore()">
@@ -76,8 +75,8 @@
             </td>
             <td class="tooltip td-invisible">
                 ?
-                <div class="tooltiptext">En otras palabras, se está evaluando la autenticidad del dominio para
-                    asegurarse de que esté asociado con una entidad de confianza.</div>
+                <div class="tooltiptext">Se evalúa si el dominio aparenta pertenecer a una entidad conocida y legítima, o se parece mucho a uno. 
+                    Si es así, cuenta como señal de suplantación.</div>
             </td>
         </tr>
         <!-- Indicadores de presentación visual -->
@@ -671,7 +670,7 @@
         <!-- Pregunta 17 -->
         <tr>
             <td>
-                ¿El correo electrónico ofrece algo personalizado e inesperado solo para usted?
+                ¿Cuántas veces el correo electrónico ofrece algo personalizado e inesperado solo para usted?
             </td>
             <td>
                 <select name="A1Q26" onchange="calculateScore()">
