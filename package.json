@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,7 @@
     "inquirer": "^9.2.14"
   },
   "devDependencies": {
+    "nodemon": "^3.0.3",
     "onchange": "^7.1.0"
   }
 }
