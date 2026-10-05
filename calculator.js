@@ -161,7 +161,7 @@ function determineCategoryA1() {
     };
     const totalScore = parseInt(document.getElementById('totalScore').textContent);
     let categoryA1 = '';
-    if (totalScore >= 1 && totalScore <= 8) {
+    if (totalScore >= 0 && totalScore <= 8) {
         categoryA1 = 'Pocos (más difícil)';
     } else if (totalScore >= 9 && totalScore <= 14) {
         categoryA1 = 'Alguno';
