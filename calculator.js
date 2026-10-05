@@ -84,7 +84,7 @@ function calculateScore() {
     // Determinar y mostrar la categoría
     let finalScore = totalScore + score3;
     document.getElementById('finalScore').textContent = finalScore;
-    let [category1, category2, finalCategory] = determineFinalCategory(categoryA1, categoryA2);
+    determineFinalCategory(categoryA1, categoryA2);
     const finalScoreValue = parseInt(document.getElementById('finalScore').textContent);
 
     //Poner colores al puntaje que da
@@ -258,6 +258,6 @@ function determineFinalCategory(categoryA1, categoryA2) {
 
     finalCategoryCell.textContent = finalCategory;
     finalDescriptionCell.textContent = descriptions[finalCategory];
-    return category1, category2, finalCategory;
+    return finalCategory;
 }
 
