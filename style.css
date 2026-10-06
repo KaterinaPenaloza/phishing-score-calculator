@@ -101,3 +101,9 @@ td select {
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
+
+
+.result-very-hard      { background-color: #f28b82; }
+.result-moderate       { background-color: #f5b061; }
+.result-moderate-easy  { background-color: #f0ee82; }
+.result-easy           { background-color: #a8d5a2; }

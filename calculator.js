@@ -1,3 +1,21 @@
+// Clase CSS para las categorías intermedias (señales y alineación).
+const CATEGORY_CLASS = {
+    'Pocos (más difícil)': 'result-very-hard',
+    'Alguno': 'result-moderate',
+    'Muchos (menos difícil)': 'result-easy',
+    'Fuerte': 'result-very-hard',
+    'Medio': 'result-moderate',
+    'Débil': 'result-easy',
+};
+
+// Clase CSS que se aplica a la celda de la categoría final
+const FINAL_CATEGORY_CLASS = {
+    'Muy dificil': 'result-very-hard',
+    'Moderadamente dificil': 'result-moderate',
+    'Moderadamente a menos dificil': 'result-moderate-easy',
+    'Menos dificil': 'result-easy',
+};
+
 function calculateScore() {
     // ************************* TABLA A1_1 ****************************
     // Puntaje para la tabla 1 sección A1_1
@@ -79,23 +97,13 @@ function calculateScore() {
 
 
 
-
      // ********************** CATEGORIA FINAL *************************
-    // Determinar y mostrar la categoría
-    let finalScore = totalScore + score3;
-    document.getElementById('finalScore').textContent = finalScore;
-    determineFinalCategory(categoryA1, categoryA2);
-    const finalScoreValue = parseInt(document.getElementById('finalScore').textContent);
+    const finalCategory = determineFinalCategory(categoryA1, categoryA2);
 
-    //Poner colores al puntaje que da
-    // Más puntaje, más fácil = amarillo
-    if (finalScoreValue >= 32) {
-        document.getElementById('finalScore').style.backgroundColor = 'rgb(240, 238, 130)';
-    } else if(finalScoreValue >= 12 && finalScoreValue < 32){
-        document.getElementById('finalScore').style.backgroundColor = 'rgb(240, 238, 130)';
-    }else if(finalScoreValue >= 0 && finalScoreValue < 12){
-        document.getElementById('finalScore').style.backgroundColor = 'rgb(245, 176, 97)';
-    }    
+    // Colores según categoría
+    document.getElementById('category1').className = CATEGORY_CLASS[categoryA1] || '';
+    document.getElementById('category2').className = CATEGORY_CLASS[categoryA2] || '';
+    document.getElementById('finalCategory').className = FINAL_CATEGORY_CLASS[finalCategory] || '';
 }
 
 
