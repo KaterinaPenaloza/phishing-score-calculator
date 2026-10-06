@@ -31,10 +31,10 @@ function calculateScore() {
         }
     }
     // ********************** CATEGORIA A1_1 *************************
-    // Actualizar el resultado total en la segunda tabla
+    // Mostrar el puntaje en la tabla de resultados de la parte 1
     document.getElementById('tblA1_1Score').textContent = score1;
     // Determinar y mostrar la categoría de la sección A1_1
-    let categoryA1_1 = determineCategoryA1_1();
+    const categoryA1_1 = determineCategoryA1_1();
     document.getElementById('categoryA1_1').textContent = categoryA1_1;
 
 
@@ -51,13 +51,12 @@ function calculateScore() {
         }
     }
     // ********************** CATEGORIA A1_2 *************************
-    // Actualizar el resultado total en la segunda tabla
+    // Mostrar el puntaje en la tabla de resultados de la parte 2
     document.getElementById('tblA1_2Score').textContent = score2;
     // Determinar y mostrar la categoría de la sección A1_2
-    let categoryA1_2 = determineCategoryA1_2();
+    const categoryA1_2 = determineCategoryA1_2();
     document.getElementById('categoryA1_2').textContent = categoryA1_2;
     
-
 
 
     // ********************** CATEGORIA A1 *************************
@@ -65,9 +64,8 @@ function calculateScore() {
     const totalScore = score1 + score2;
     document.getElementById('totalScore').textContent = totalScore;
     // Determinar y mostrar la categoría de la sección A1
-    let categoryA1 = determineCategoryA1();
+    const categoryA1 = determineCategoryA1();
     document.getElementById('category1').textContent = categoryA1;
-
 
 
 
@@ -92,12 +90,12 @@ function calculateScore() {
     // Actualizar el resultado total en la tabla 1 sección A2
     document.getElementById('tblA2Score').textContent = score3;
     // Determinar y mostrar la categoría
-    let categoryA2 = determineCategoryA2();
+    const categoryA2 = determineCategoryA2();
     document.getElementById('category2').textContent = categoryA2;
 
 
 
-     // ********************** CATEGORIA FINAL *************************
+    // ********************** CATEGORIA FINAL *************************
     const finalCategory = determineFinalCategory(categoryA1, categoryA2);
 
     // Colores según categoría
@@ -256,16 +254,13 @@ function determineFinalCategory(categoryA1, categoryA2) {
     }
 
     // Mostrar la información en las dos columnas
-    let category1 = categoryA1
-    let category2 = categoryA2
-    category1Cell.textContent = category1
-    category1DescriptionCell.textContent = descriptions1[category1]
+    category1Cell.textContent = categoryA1;
+    category1DescriptionCell.textContent = descriptions1[categoryA1];
 
-    category2Cell.textContent = category2
-    category2DescriptionCell.textContent = descriptions2[category2]
+    category2Cell.textContent = categoryA2;
+    category2DescriptionCell.textContent = descriptions2[categoryA2];
 
     finalCategoryCell.textContent = finalCategory;
     finalDescriptionCell.textContent = descriptions[finalCategory];
     return finalCategory;
 }
-
