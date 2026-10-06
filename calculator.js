@@ -16,20 +16,25 @@ const FINAL_CATEGORY_CLASS = {
     'Menos dificil': 'result-easy',
 };
 
+// ****** Funciones auxiliares para las respuestas ******//
+// Convierte la respuesta de un select en número (sin responder = 0)
+function numericValue(select) {
+    return parseInt(select.value, 10) || 0;
+}
+
+// Suma lo que aporta cada pregunta de una tabla.
+function sumAnswers(tableId, valueOf) {
+    let total = 0;
+    for (const select of document.querySelectorAll(`#${tableId} select`)) {
+        total += valueOf(select);
+    }
+    return total;
+}
+
 function calculateScore() {
     // ************************* TABLA A1_1 ****************************
-    // Puntaje para la tabla 1 sección A1_1
-    const tblA1_1 = document.getElementById('questionsTableA1_1');
-    let score1 = 0;
-    for (let i = 1; i < tblA1_1.rows.length; i++) {
-        const selectElement = tblA1_1.rows[i].cells[1].querySelector('select');
-        if (selectElement) {
-            const answer = selectElement.value;
-            if (answer === 'si') {
-                score1 += 1;
-            }
-        }
-    }
+    // Puntaje para la tabla 1 sección A1_1, cada "sí" suma 1 punto
+    const score1 = sumAnswers('questionsTableA1_1', select => (select.value === 'si' ? 1 : 0));
     // ********************** CATEGORIA A1_1 *************************
     // Mostrar el puntaje en la tabla de resultados de la parte 1
     document.getElementById('tblA1_1Score').textContent = score1;
@@ -40,16 +45,8 @@ function calculateScore() {
 
 
     // ********************** TABLA A1_2 *************************
-    // Puntaje para la tabla 2 sección A1_2
-    const tblA1_2 = document.getElementById('questionsTableA1_2');
-    let score2 = 0;
-    for (let i = 1; i < tblA1_2.rows.length; i++) {
-        const selectElement = tblA1_2.rows[i].cells[1].querySelector('select');
-        if (selectElement) {
-            const answer = parseInt(selectElement.value, 10) || 0;
-            score2 += answer;
-        }
-    }
+    // Puntaje para la tabla 2 sección A1_2, cada respuesta suma su valor numérico
+    const score2 = sumAnswers('questionsTableA1_2', numericValue);
     // ********************** CATEGORIA A1_2 *************************
     // Mostrar el puntaje en la tabla de resultados de la parte 2
     document.getElementById('tblA1_2Score').textContent = score2;
@@ -71,21 +68,10 @@ function calculateScore() {
 
     // ********************** TABLA 3 *************************
     // Puntaje para la tabla 1 sección A2
-    const tblA2 = document.getElementById('questionsTableA2');
-    let score3 = 0;
-    for (let i = 1; i < tblA2.rows.length; i++) {
-        const selectElement = tblA2.rows[i].cells[1].querySelector('select');
-        if (selectElement) {
-            const answer = parseInt(selectElement.value, 10) || 0;
-            // Si no es la última fila, sumar el valor
-            if (i < tblA2.rows.length - 1) {
-                score3 += answer;
-            } else {
-                // Si es la última fila, restar el valor
-                score3 -= answer;
-            }
-        }
-    }
+        // Los elementos 1 a 4 suman; el 5 (capacitación) resta
+    const score3 = sumAnswers('questionsTableA2', select =>
+        select.name === 'A2Q5' ? -numericValue(select) : numericValue(select)
+    );
     // ********************** CATEGORIA A2 *************************
     // Actualizar el resultado total en la tabla 1 sección A2
     document.getElementById('tblA2Score').textContent = score3;
