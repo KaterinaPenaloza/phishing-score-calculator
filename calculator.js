@@ -10,10 +10,10 @@ const CATEGORY_CLASS = {
 
 // Clase CSS para la categoría final
 const FINAL_CATEGORY_CLASS = {
-    'Menos dificil': 'result-easy',
-    'Moderadamente a menos dificil': 'result-moderate-easy',
-    'Moderadamente dificil': 'result-moderate',
-    'Muy dificil': 'result-very-hard',
+    'Menos difícil': 'result-easy',
+    'Moderadamente a menos difícil': 'result-moderate-easy',
+    'Moderadamente difícil': 'result-moderate',
+    'Muy difícil': 'result-very-hard',
 };
 
 // Bloque de resultados:
@@ -101,6 +101,10 @@ function sumAnswers(tableId, valueOf) {
     return total;
 }
 
+function setText(id, text) {
+    document.getElementById(id).textContent = text;
+}
+
 // ****** Calcular puntajes por seccion ******//
 function calculateScore() {
     // ************************* TABLA A1_1 ****************************
@@ -108,10 +112,10 @@ function calculateScore() {
     const score1 = sumAnswers('questionsTableA1_1', select => (select.value === 'si' ? 1 : 0));
     // ********************** CATEGORIA A1_1 *************************
     // Mostrar el puntaje en la tabla de resultados de la parte 1
-    document.getElementById('tblA1_1Score').textContent = score1;
+    setText('tblA1_1Score', score1);
     // Determinar y mostrar la categoría de la sección A1_1
     const categoryA1_1 = determineCategory(CATEGORY_BLOCKS.presence, score1);
-    document.getElementById('categoryA1_1').textContent = categoryA1_1;
+    setText('categoryA1_1', categoryA1_1);
 
 
     // ********************** TABLA A1_2 *************************
@@ -119,20 +123,19 @@ function calculateScore() {
     const score2 = sumAnswers('questionsTableA1_2', numericValue);
     // ********************** CATEGORIA A1_2 *************************
     // Mostrar el puntaje en la tabla de resultados de la parte 2
-    document.getElementById('tblA1_2Score').textContent = score2;
+    setText('tblA1_2Score', score2);
     // Determinar y mostrar la categoría de la sección A1_2
     const categoryA1_2 = determineCategory(CATEGORY_BLOCKS.count, score2);
-    document.getElementById('categoryA1_2').textContent = categoryA1_2;
+    setText('categoryA1_2', categoryA1_2);
     
 
     // ********************** RESULTADO A1 *************************
     // Calcular y mostrar el puntaje total (suma de las dos tablas)
     const totalScore = score1 + score2;
-    document.getElementById('totalScore').textContent = totalScore;
+    setText('totalScore', totalScore);
     // Determinar y mostrar la categoría de la sección A1
     const categoryA1 = determineCategory(CATEGORY_BLOCKS.cues, totalScore);
-    document.getElementById('category1').textContent = categoryA1;
-
+    setText('category1', categoryA1);
 
     // ********************** TABLA A2 *************************
     // Los elementos 1 a 4 suman; el 5 (capacitación) resta
@@ -141,10 +144,10 @@ function calculateScore() {
     );
     // ********************** CATEGORIA A2 *************************
     // Actualizar el resultado total en la tabla 1 sección A2
-    document.getElementById('tblA2Score').textContent = score3;
+    setText('tblA2Score', score3);
     // Determinar y mostrar la categoría
     const categoryA2 = determineCategory(CATEGORY_BLOCKS.premise, score3);
-    document.getElementById('category2').textContent = categoryA2;
+    setText('category2', categoryA2);
 
 
     // ********************** CATEGORIA FINAL *************************
@@ -160,56 +163,48 @@ function calculateScore() {
 //****** Determinar Categorias ******//
 function determineCategory(block, score) {
     const level = block.levels.find(level => score <= level.upTo);
-    document.getElementById(block.categoryId).textContent = level.label;
-    document.getElementById(block.descriptionId).textContent = block.descriptions[level.label];
+    setText(block.categoryId, level.label);
+    setText(block.descriptionId, block.descriptions[level.label]);
     return level.label;
 }
 
 function determineFinalCategory(categoryA1, categoryA2) {
-    // Crear la nueva categorización
-    const category1Cell = document.getElementById("category1");
-    const category1DescriptionCell = document.getElementById("category1Description");
-    const category2Cell = document.getElementById("category2");
-    const category2DescriptionCell = document.getElementById("category2Description");
-    // Crear la nueva categorización
-    const finalCategoryCell = document.getElementById("finalCategory");
-    const finalDescriptionCell = document.getElementById("finalCategoryDescription");
     const descriptions = {
-        'Muy dificil': 'Pocas señales observables y una premisa muy alineada con el contexto del destinatario. El correo parece legítimo y casi no da pistas para sospechar, por lo que es esperable que muchos destinatarios no lo identifiquen como phishing.',
-        'Moderadamente dificil': 'Combinación intermedia entre señales y alineación. Existen pistas, pero el contexto es lo bastante creíble como para que una parte de los destinatarios no las note. Detectarlo exige atención y conocimiento del contexto laboral.',
-        'Moderadamente a menos dificil': 'Hay una cantidad razonable de señales y el contenido encaja poco con lo que el destinatario espera, de modo que las inconsistencias son relativamente visibles. Una persona atenta debería detectarlo, aunque no está garantizado.',
-        'Menos dificil': 'Abundan las señales y el mensaje casi no calza con el contexto del destinatario. Es el escenario más fácil de detectar como phishing.',
+        'Muy difícil': 'Pocas señales observables y una premisa muy alineada con el contexto del destinatario. El correo parece legítimo y casi no da pistas para sospechar, por lo que es esperable que muchos destinatarios no lo identifiquen como phishing.',
+        'Moderadamente difícil': 'Combinación intermedia entre señales y alineación. Existen pistas, pero el contexto es lo bastante creíble como para que una parte de los destinatarios no las note. Detectarlo exige atención y conocimiento del contexto laboral.',
+        'Moderadamente a menos difícil': 'Hay una cantidad razonable de señales y el contenido encaja poco con lo que el destinatario espera, de modo que las inconsistencias son relativamente visibles. Una persona atenta debería detectarlo, aunque no está garantizado.',
+        'Menos difícil': 'Abundan las señales y el mensaje casi no calza con el contexto del destinatario. Es el escenario más fácil de detectar como phishing.',
     };
 
     let finalCategory = '';
     // Combinar categorías y subcategorías
-    // Moderadamente dificil
+    // Moderadamente difícil
     if ((categoryA1 === 'Pocos (más difícil)' && categoryA2 === 'Débil')
         || (categoryA1 === 'Alguno' && categoryA2 === 'Medio')
         || (categoryA1 === 'Muchos (menos difícil)' && categoryA2 === 'Medio')
         || (categoryA1 === 'Muchos (menos difícil)' && categoryA2 === 'Fuerte')) {
-        finalCategory = 'Moderadamente dificil';
-        // Muy dificil
+        finalCategory = 'Moderadamente difícil';
+        // Muy difícil
     } else if (categoryA1 === 'Pocos (más difícil)' && categoryA2 === 'Fuerte'
         || (categoryA1 === 'Pocos (más difícil)' && categoryA2 === 'Medio')
         || (categoryA1 === 'Alguno' && categoryA2 === 'Fuerte')) {
-        finalCategory = 'Muy dificil';
-        // Moderadamente a menos dificil
+        finalCategory = 'Muy difícil';
+        // Moderadamente a menos difícil
     } else if (categoryA1 === 'Alguno' && categoryA2 === 'Débil') {
-        finalCategory = 'Moderadamente a menos dificil';
-        // Menos dificil
+        finalCategory = 'Moderadamente a menos difícil';
+        // Menos difícil
     } else if (categoryA1 === 'Muchos (menos difícil)' && categoryA2 === 'Débil') {
-        finalCategory = 'Menos dificil';
+        finalCategory = 'Menos difícil';
     }
 
     // Mostrar la información en las dos columnas
-    category1Cell.textContent = categoryA1;
-    category1DescriptionCell.textContent = CATEGORY_BLOCKS.cues.descriptions[categoryA1];
- 
-    category2Cell.textContent = categoryA2;
-    category2DescriptionCell.textContent = CATEGORY_BLOCKS.premise.descriptions[categoryA2];
- 
-    finalCategoryCell.textContent = finalCategory;
-    finalDescriptionCell.textContent = descriptions[finalCategory];
+    setText('category1', categoryA1);
+    setText('category1Description', CATEGORY_BLOCKS.cues.descriptions[categoryA1]);
+
+    setText('category2', categoryA2);
+    setText('category2Description', CATEGORY_BLOCKS.premise.descriptions[categoryA2]);
+
+    setText('finalCategory', finalCategory);
+    setText('finalCategoryDescription', descriptions[finalCategory]);
     return finalCategory;
 }
