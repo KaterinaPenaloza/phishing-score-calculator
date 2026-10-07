@@ -8,14 +8,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
-    <title>Calculadora Phishing</title>
+    <title>Calculadora puntaje phishing</title>
 </head>
 
 <body>
     <div class="header">
         <h1>Calculadora de puntaje de phishing</h1>
     </div>
-    <p>
+    <section id="step-cues">
+        <p>
         La escala de phishing del NIST (Instituto Nacional de Estándares y Tecnología) es una herramienta que puede
         utilizarse para evaluar el riesgo asociado con correos electrónicos de phishing. Este tipo de correos electrónicos buscan
         engañar a los destinatarios para que revelen información confidencial, como contraseñas, información financiera o datos
@@ -25,16 +26,17 @@
     </p><br>
 
     <!-- Seccion A.1 Email Cues -->
-    <h2>A.1 Presencia de señales en un correo electrónico</h2><br>
+    <h2>A.1 Señales del correo electrónico – Parte 1: presencia</h2><br>
     <p>Esta sección se utiliza para evaluar la presencia de señales de phishing en un correo electrónico,
         proporcionando un enfoque sistemático para determinar la probabilidad de que el correo electrónico sea
         malicioso.
         La categorización se realiza en función del conteo total de señales observadas.</p><br>
     <p>Responda “sí” o “no” a las siguientes preguntas</p><br>
     <!-- Preguntas Parte 1 (A1_1)-->
+    
     <table id="questionsTableA1_1">
         <tr style="background-color: #84b6f4; text-align: center;">
-            <th colspan="2">Tabla 1: Presencia de Señales</th>
+            <th colspan="2">Tabla 1 – Parte 1: Presencia de señales</th>
         </tr>
         <!-- Indicadores tecnicos -->
         <tr>
@@ -223,52 +225,14 @@
                     confidencial.</div>
             </td>
         </tr>
-    </table><br>
-    <!-- Escala resultados A1_1 -->
-    <table>
-        <tr style="background-color: #242424; text-align: center;">
-            <th colspan="2">Tabla de escala de conteo de señales primera tabla</th>
-        </tr>
-        <tr>
-            <th style="background-color: #242424;">Conteo de señales tabla 1</th>
-            <th style="background-color: #242424;">Categoría tabla 1</th>
-        </tr>
-        <tr>
-            <td>0-3</td>
-            <td>Rango de señales bajas</td>
-        </tr>
-        <tr>
-            <td>4-6</td>
-            <td>Rango de señales medias</td>
-        </tr>
-        <tr>
-            <td>7-9</td>
-            <td>Rango de señales altas</td>
-        </tr>
-    </table><br>
-    <!-- Resultado primera tabla -->
-    <table>
-        <tr style="background-color: #1E58BB; text-align: center;">
-            <th colspan="3">Tabla de resultados primera tabla</th>
-        </tr>
-        <tr>
-            <th style="background-color: #1E58BB;">Puntaje</th>
-            <th style="background-color: #1E58BB;">Categoría</th>
-            <th style="background-color: #1E58BB;">Descripción</th>
-        </tr>
-        <tr>
-            <td id="tblA1_1Score">0</td>
-            <td id="categoryA1_1"></td>
-            <td id="A1_1CategoryDescription"></td>
-        </tr>
-    </table><br>
-
+    </table>
+    <br>
     <!-- Preguntas Parte 2 (A1_2)-->
-    <h2>A.2 Conteo de señales de correo electrónico</h2><br>
+    <h2>A.1 Señales del correo electrónico – Parte 2: conteo</h2><br>
     <p>Cuente el número total de veces que aparece lo siguiente en el correo electrónico:</p><br>
     <table id="questionsTableA1_2">
         <tr style="background-color: #bc98f3; text-align: center;">
-            <th colspan="2">Tabla 2: Conteo de Señales</th>
+            <th colspan="2">Tabla 1 – Parte 2: Conteo de señales</th>
         </tr>
         <!-- Errores -->
         <tr>
@@ -713,11 +677,55 @@
                     o participar en una oferta especial</div>
             </td>
         </tr>
-    </table><br>
+    </table>
+    </section>
+
+    <section id="step-cues-result">
+    <h2>Resultado A.1: señales del correo electrónico</h2><br>
+    <!-- Escala resultados A1_1 -->
+    <table>
+        <tr style="background-color: #242424; text-align: center;">
+            <th colspan="2">Escala de señales – Parte 1</th>
+        </tr>
+        <tr>
+            <th style="background-color: #242424;">Conteo de señales tabla 1</th>
+            <th style="background-color: #242424;">Categoría tabla 1</th>
+        </tr>
+        <tr>
+            <td>0-3</td>
+            <td>Rango de señales bajas</td>
+        </tr>
+        <tr>
+            <td>4-6</td>
+            <td>Rango de señales medias</td>
+        </tr>
+        <tr>
+            <td>7-9</td>
+            <td>Rango de señales altas</td>
+        </tr>
+    </table>
+    <br>
+    <!-- Resultado primera tabla -->
+    <table>
+        <tr style="background-color: #1E58BB; text-align: center;">
+            <th colspan="3">Resultados – Parte 1</th>
+        </tr>
+        <tr>
+            <th style="background-color: #1E58BB;">Puntaje</th>
+            <th style="background-color: #1E58BB;">Categoría</th>
+            <th style="background-color: #1E58BB;">Descripción</th>
+        </tr>
+        <tr>
+            <td id="tblA1_1Score">0</td>
+            <td id="categoryA1_1"></td>
+            <td id="A1_1CategoryDescription"></td>
+        </tr>
+    </table>
+    <br>
     <!-- Escala resultados A1_2 -->
     <table>
         <tr style="background-color: #242424; text-align: center;">
-            <th colspan="3">Tabla de escala de conteo de señales segunda tabla</th>
+            <th colspan="3">Escala de señales – Parte 2</th>
         </tr>
         <tr>
             <th style="background-color: #242424;">Conteo de señales parte 2</th>
@@ -735,11 +743,12 @@
             <td>15 o más</td>
             <td>Rango de señales altas</td>
         </tr>
-    </table><br>
+    </table>
+    <br>
     <!-- Resultado segunda tabla -->
     <table>
         <tr style="background-color: #6D00BB; text-align: center;">
-            <th colspan="3">Tabla de resultados segunda tabla</th>
+            <th colspan="3">Resultados – Parte 2</th>
         </tr>
         <tr>
             <th style="background-color: #6D00BB;">Puntaje</th>
@@ -751,13 +760,12 @@
             <td id="categoryA1_2"></td>
             <td id="A1_2CategoryDescription"></td>
         </tr>
-    </table><br>
-
-    <h2>Resultado primera parte</h2><br>
+    </table>
+    <br>
     <!-- Escala resultados A1-->
     <table>
         <tr style="background-color: #242424; text-align: center;">
-            <th colspan="2">Tabla de escala de conteo total de señales</th>
+            <th colspan="2">Escala de señales – Total</th>
         </tr>
         <tr>
             <th style="background-color: #242424;">Conteo total de señales</th>
@@ -778,11 +786,12 @@
                 oportunidades de
                 identificar el correo electrónico como phishing</td>
         </tr>
-    </table><br>
+    </table>
+    <br>
     <!-- Categoría A1 asignada -->
     <table>
         <tr style="background-color: #802665; text-align: center;">
-            <th colspan="3">Tabla de Resultados</th>
+            <th colspan="3">Resultados – Total de señales</th>
         </tr>
         <tr>
             <th style="background-color: #802665;">Puntaje</th>
@@ -794,11 +803,12 @@
             <td id="categoryA1"></td>
             <td id="A1CategoryDescription"></td>
         </tr>
-    </table><br>
+    </table>
+    </section>
 
-
+    <section id="step-premise">
     <!-- Seccion A.2 -->
-    <h2>A.3 Alineación de Premisas</h2><br>
+    <h2>A.2 Alineación de premisas</h2><br>
     <p>La alineación de las premisas es una medida de qué tan cerca coincide un correo electrónico con las funciones o
         responsabilidades laborales del destinatario u organización de un correo electrónico. Cuanto más fuerte sea la
         alineación de las premisas de un correo electrónico, más difícil será detectarlo como phishing. A la inversa,
@@ -811,9 +821,11 @@
     </p><br>
 
     <!-- Escala de aplicabilidad -->
+
+    <!-- Escala de aplicabilidad -->
     <table>
         <tr style="background-color: #242424; text-align: center;">
-            <th colspan="2">Tabla de escala de aplicabilidad tercera tabla</th>
+            <th colspan="2">Escala de aplicabilidad</th>
         </tr>
         <tr>
             <th style="background-color: #242424;">Escala de aplicabilidad</th>
@@ -839,12 +851,13 @@
             <td>No aplicable, sin alineación o sin relevancia </td>
             <td>0</td>
         </tr>
-    </table><br>
+    </table>
+    <br>
 
     <!-- Preguntas de Alineamiento de premisas -->
     <table id="questionsTableA2">
         <tr style="background-color: #D676B8; text-align: center;">
-            <th colspan="2">Tabla 3: Alineación de premisas</th>
+            <th colspan="2">Tabla 2: Alineación de premisas</th>
         </tr>
         <!-- Imita un proceso o práctica en el lugar de trabajo.  -->
         <tr>
@@ -991,19 +1004,22 @@
                     identificar y prevenir ataques de correo electrónico maliciosos.</div>
             </td>
         </tr>
-    </table><br>
+    </table>
+    <br>
     <p><b><i>
                 La suma de las puntuaciones de aplicabilidad para los elementos de alineación de premisas 1 a 4, MENOS
                 <br>
                 el puntaje de aplicabilidad para el elemento 5 de alineación de premisas es su calificación de
                 alineación de premisas.
             </i></b></p><br>
+    </section>
 
-    <h2>Resultado segunda parte</h2><br>
+    <section id="step-premise-result">
+    <h2>Resultado A.2: alineación de premisas</h2><br>
     <!-- Categoría A2 asignada -->
     <table>
         <tr style="background-color: #242424; text-align: center;">
-            <th colspan="2">Tabla de escala de alineación con la premisa tercera tabla</th>
+            <th colspan="2">Escala de alineación de premisas</th>
         </tr>
         <tr>
             <th style="background-color: #242424;">Calificación de Alineación con la Premisa</th>
@@ -1021,10 +1037,11 @@
             <td>18 o más</td>
             <td>Fuerte</td>
         </tr>
-    </table><br>
+    </table>
+    <br>
     <table>
         <tr style="background-color: #801C5D; text-align: center;">
-            <th colspan="3">Tabla de resultados tercera tabla</th>
+            <th colspan="3">Resultados – Alineación de premisas</th>
         </tr>
         <tr>
             <th style="background-color: #801C5D;">Puntaje</th>
@@ -1036,8 +1053,10 @@
             <td id="categoryA2"></td>
             <td id="A2CategoryDescription"></td>
         </tr>
-    </table><br>
+    </table>
+    </section>
 
+    <section id="step-final">
     <h2>Resultados Finales</h2><br>
     <!-- Final A.3-->
     <h2>A.3 Detección de dificultad</h2><br>
@@ -1067,6 +1086,9 @@
             <td id="finalCategoryDescription"></td>
         </tr>
     </table>
+    </section>
+
+
 
     <script src="calculator.js"></script>
 </body>
