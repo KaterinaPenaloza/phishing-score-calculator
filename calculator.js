@@ -208,3 +208,32 @@ function determineFinalCategory(categoryA1, categoryA2) {
     setText('finalCategoryDescription', descriptions[finalCategory]);
     return finalCategory;
 }
+
+
+// ------------------------- NAVEGACIÓN ENTRE PASOS -------------------------
+// Muestra paso actual
+function showStep(stepId) {
+    for (const step of document.querySelectorAll('section')) {
+        step.hidden = step.id !== stepId;
+    }
+    window.scrollTo(0, 0);
+}
+
+// Vuelve al estado inicial
+function restart() {
+    for (const select of document.querySelectorAll('select')) {
+        select.value = '';
+    }
+    calculateScore();
+    showStep('step-cues');
+}
+
+document.addEventListener('click', event => {
+    const gotoButton = event.target.closest('[data-goto]');
+    if (gotoButton) {
+        showStep(gotoButton.dataset.goto);
+    }
+    if (event.target.closest('[data-action="restart"]')) {
+        restart();
+    }
+});

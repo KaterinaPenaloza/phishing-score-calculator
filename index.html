@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
-    <title>Calculadora puntaje phishing</title>
+    <title>Calculadora Phishing</title>
 </head>
 
 <body>
@@ -678,9 +678,13 @@
             </td>
         </tr>
     </table>
+    <br>
+    <div class="step-buttons">
+        <button type="button" data-goto="step-cues-result">Ver resultado parcial</button>
+    </div>
     </section>
 
-    <section id="step-cues-result">
+    <section id="step-cues-result" hidden>
     <h2>Resultado A.1: señales del correo electrónico</h2><br>
     <!-- Escala resultados A1_1 -->
     <table>
@@ -804,9 +808,14 @@
             <td id="A1CategoryDescription"></td>
         </tr>
     </table>
+    <br>
+    <div class="step-buttons">
+        <button type="button" data-goto="step-cues">Volver</button>
+        <button type="button" data-goto="step-premise">Continuar</button>
+    </div>
     </section>
 
-    <section id="step-premise">
+    <section id="step-premise" hidden>
     <!-- Seccion A.2 -->
     <h2>A.2 Alineación de premisas</h2><br>
     <p>La alineación de las premisas es una medida de qué tan cerca coincide un correo electrónico con las funciones o
@@ -1012,9 +1021,14 @@
                 el puntaje de aplicabilidad para el elemento 5 de alineación de premisas es su calificación de
                 alineación de premisas.
             </i></b></p><br>
+    <br>
+    <div class="step-buttons">
+        <button type="button" data-goto="step-cues-result">Volver</button>
+        <button type="button" data-goto="step-premise-result">Ver resultado parcial</button>
+    </div>
     </section>
 
-    <section id="step-premise-result">
+    <section id="step-premise-result" hidden>
     <h2>Resultado A.2: alineación de premisas</h2><br>
     <!-- Categoría A2 asignada -->
     <table>
@@ -1054,9 +1068,14 @@
             <td id="A2CategoryDescription"></td>
         </tr>
     </table>
+    <br>
+    <div class="step-buttons">
+        <button type="button" data-goto="step-premise">Volver</button>
+        <button type="button" data-goto="step-final">Ver resultado final</button>
+    </div>
     </section>
 
-    <section id="step-final">
+    <section id="step-final" hidden>
     <h2>Resultados Finales</h2><br>
     <!-- Final A.3-->
     <h2>A.3 Detección de dificultad</h2><br>
@@ -1086,6 +1105,11 @@
             <td id="finalCategoryDescription"></td>
         </tr>
     </table>
+    <br>
+    <div class="step-buttons">
+        <button type="button" data-goto="step-premise-result">Volver</button>
+        <button type="button" data-action="restart">Reiniciar</button>
+    </div>
     </section>
 
 
