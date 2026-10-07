@@ -10,10 +10,10 @@ const CATEGORY_CLASS = {
 
 // Clase CSS que se aplica a la celda de la categoría final
 const FINAL_CATEGORY_CLASS = {
-    'Muy dificil': 'result-very-hard',
-    'Moderadamente dificil': 'result-moderate',
-    'Moderadamente a menos dificil': 'result-moderate-easy',
     'Menos dificil': 'result-easy',
+    'Moderadamente a menos dificil': 'result-moderate-easy',
+    'Moderadamente dificil': 'result-moderate',
+    'Muy dificil': 'result-very-hard',
 };
 
 // ****** Funciones auxiliares para las respuestas ******//
@@ -39,7 +39,7 @@ function calculateScore() {
     // Mostrar el puntaje en la tabla de resultados de la parte 1
     document.getElementById('tblA1_1Score').textContent = score1;
     // Determinar y mostrar la categoría de la sección A1_1
-    const categoryA1_1 = determineCategoryA1_1();
+    const categoryA1_1 = determineCategoryA1_1(score1);
     document.getElementById('categoryA1_1').textContent = categoryA1_1;
 
 
@@ -51,7 +51,7 @@ function calculateScore() {
     // Mostrar el puntaje en la tabla de resultados de la parte 2
     document.getElementById('tblA1_2Score').textContent = score2;
     // Determinar y mostrar la categoría de la sección A1_2
-    const categoryA1_2 = determineCategoryA1_2();
+    const categoryA1_2 = determineCategoryA1_2(score2);
     document.getElementById('categoryA1_2').textContent = categoryA1_2;
     
 
@@ -61,7 +61,7 @@ function calculateScore() {
     const totalScore = score1 + score2;
     document.getElementById('totalScore').textContent = totalScore;
     // Determinar y mostrar la categoría de la sección A1
-    const categoryA1 = determineCategoryA1();
+    const categoryA1 = determineCategoryA1(totalScore);
     document.getElementById('category1').textContent = categoryA1;
 
 
@@ -76,7 +76,7 @@ function calculateScore() {
     // Actualizar el resultado total en la tabla 1 sección A2
     document.getElementById('tblA2Score').textContent = score3;
     // Determinar y mostrar la categoría
-    const categoryA2 = determineCategoryA2();
+    const categoryA2 = determineCategoryA2(score3);
     document.getElementById('category2').textContent = categoryA2;
 
 
@@ -94,7 +94,7 @@ function calculateScore() {
 
 
 //****** Determinar Categorias ******//
-function determineCategoryA1_1() {
+function determineCategoryA1_1(tblA1_1Score) {
     // Crear la nueva categorización
     const A1_1CategoryCell = document.getElementById("categoryA1_1");
     const A1_1DescriptionCell = document.getElementById("A1_1CategoryDescription");
@@ -103,7 +103,6 @@ function determineCategoryA1_1() {
         'Rango de señales medias': 'Este rango entrega señales claras pero no determinantes para considerarlo phishing.',
         'Rango de señales altas': 'Este rango presenta señales o indicios suficientes de que el correo es sospechoso o phishing.',
     };
-    const tblA1_1Score = parseInt(document.getElementById('tblA1_1Score').textContent);
     let categoryA1_1 = '';
     if (tblA1_1Score >= 0 && tblA1_1Score <= 3) {
         categoryA1_1 = 'Rango de señales bajas';
@@ -118,7 +117,7 @@ function determineCategoryA1_1() {
     return categoryA1_1;
 }
 
-function determineCategoryA1_2() {
+function determineCategoryA1_2(tblA1_2Score) {
     // Crear la nueva categorización
     const A1_2CategoryCell = document.getElementById("categoryA1_2");
     const A1_2DescriptionCell = document.getElementById("A1_2CategoryDescription");
@@ -127,7 +126,6 @@ function determineCategoryA1_2() {
         'Rango de señales medias': 'Este rango entrega señales claras pero no determinantes para considerarlo phishing.',
         'Rango de señales altas': 'Este rango presenta señales o indicios suficientes de que el correo es sospechoso o phishing.',
     };
-    const tblA1_2Score = parseInt(document.getElementById('tblA1_2Score').textContent);
     let categoryA1_2 = '';
     if (tblA1_2Score >= 0 && tblA1_2Score <= 8) {
         categoryA1_2 = 'Rango de señales bajas';
@@ -142,7 +140,7 @@ function determineCategoryA1_2() {
     return categoryA1_2;
 }
 
-function determineCategoryA1() {
+function determineCategoryA1(totalScore) {
     // Crear la nueva categorización
     const A1CategoryCell = document.getElementById("categoryA1");
     const A1DescriptionCell = document.getElementById("A1CategoryDescription");
@@ -151,7 +149,6 @@ function determineCategoryA1() {
         'Alguno': 'Se evidencia que estos correos electrónicos pueden mostrar algunos elementos sospechosos, pero no son extremadamente evidentes ni totalmente sutiles. La evaluación de pistas en los correos electrónicos de phishing es crucial para que los usuarios puedan identificar posibles amenazas y tomar medidas de seguridad adecuadas.',
         'Muchos (menos difícil)': 'Hay múltiples indicadores o características en el correo electrónico que podrían levantar sospechas y alertar al destinatario sobre su naturaleza maliciosa. Este aumento en las señales no solo amplía las oportunidades para detectar el phishing, sino que también sugiere que el correo electrónico puede contener múltiples elementos sospechosos o incoherencias que podrían revelar su intención fraudulenta. ',
     };
-    const totalScore = parseInt(document.getElementById('totalScore').textContent);
     let categoryA1 = '';
     if (totalScore >= 0 && totalScore <= 8) {
         categoryA1 = 'Pocos (más difícil)';
@@ -166,7 +163,7 @@ function determineCategoryA1() {
     return categoryA1;
 }
 
-function determineCategoryA2() {
+function determineCategoryA2(totalScore2) {
     // Crear la nueva categorización
     const A2CategoryCell = document.getElementById("categoryA2");
     const A2DescriptionCell = document.getElementById("A2CategoryDescription");
@@ -175,7 +172,6 @@ function determineCategoryA2() {
         'Medio': 'La alineación moderada indica que el correo electrónico comparte ciertos elementos relevantes para la audiencia, pero puede haber áreas donde la adaptación no sea tan precisa o convincente. La dificultad para detectar el correo electrónico como un phish es moderada en este escenario.',
         'Débil': 'Esto implica que el contenido del correo electrónico tiene una adaptación limitada o deficiente a las características, intereses o expectativas de la audiencia. La baja alineación hace que el correo electrónico sea menos difícil de detectar como un intento de phishing, ya que es probable que los destinatarios noten discrepancias o anomalías en el contenido que no coinciden con su contexto habitual.',
     };
-    const totalScore2 = parseInt(document.getElementById('tblA2Score').textContent);
     let categoryA2 = '';
     if (totalScore2 <= 10) {
         categoryA2 = 'Débil';
