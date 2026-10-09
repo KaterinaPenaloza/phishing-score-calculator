@@ -1,11 +1,12 @@
-// Clase CSS para las categorías intermedias (señales y alineación).
+// Clase CSS para las categorías intermedias.
 const CATEGORY_CLASS = {
     'Pocos (más difícil)': 'result-very-hard',
     'Alguno': 'result-moderate',
     'Muchos (menos difícil)': 'result-easy',
-    'Fuerte': 'result-very-hard',
-    'Medio': 'result-moderate',
+
     'Débil': 'result-easy',
+    'Medio': 'result-moderate',
+    'Fuerte': 'result-very-hard',
 };
 
 // Clase CSS para la categoría final
@@ -16,19 +17,16 @@ const FINAL_CATEGORY_CLASS = {
     'Muy difícil': 'result-very-hard',
 };
 
-// Bloque de resultados:
-//  - categoryId / descriptionId: celdas donde se muestran la categoría y su descripción
-//  - levels: de menor a mayor.
-//  - descriptions: texto de cada categoría
+// Bloque de resultados
 const CATEGORY_BLOCKS = {
     // A.1 Parte 1: presencia de señales
     presence: {
         categoryId: 'categoryA1_1',
         descriptionId: 'A1_1CategoryDescription',
         levels: [
-            { upTo: 3, label: 'Rango de señales bajas' },
-            { upTo: 6, label: 'Rango de señales medias' },
-            { upTo: Infinity, label: 'Rango de señales altas' },
+            { upTo: 3, range: '0-3', label: 'Rango de señales bajas'},
+            { upTo: 6, range: '4-6', label: 'Rango de señales medias'},
+            { upTo: Infinity, range: '7-9', label: 'Rango de señales altas'},
         ],
         descriptions: {
             'Rango de señales bajas': 'Aquí no se proporcionan suficientes señales para que el correo electrónico sea categorizado como malicioso o phishing.',
@@ -41,9 +39,9 @@ const CATEGORY_BLOCKS = {
         categoryId: 'categoryA1_2',
         descriptionId: 'A1_2CategoryDescription',
         levels: [
-            { upTo: 8, label: 'Rango de señales bajas' },
-            { upTo: 14, label: 'Rango de señales medias' },
-            { upTo: Infinity, label: 'Rango de señales altas' },
+            { upTo: 8, range: '0-8', label: 'Rango de señales bajas'},
+            { upTo: 14, range: '9-14', label: 'Rango de señales medias'},
+            { upTo: Infinity, range: '15 o más', label: 'Rango de señales altas'},
         ],
         descriptions: {
             'Rango de señales bajas': 'Aquí no se proporcionan suficientes señales para que el correo electrónico sea categorizado como malicioso o phishing.',
@@ -56,25 +54,24 @@ const CATEGORY_BLOCKS = {
         categoryId: 'categoryA1',
         descriptionId: 'A1CategoryDescription',
         levels: [
-            { upTo: 8, label: 'Pocos (más difícil)' },
-            { upTo: 14, label: 'Alguno' },
-            { upTo: Infinity, label: 'Muchos (menos difícil)' },
+            { upTo: 8, label: 'Pocos (más difícil)'},
+            { upTo: 14, label: 'Alguno'},
+            { upTo: Infinity, label: 'Muchos (menos difícil)'},
         ],
         descriptions: {
             'Pocos (más difícil)': 'Un correo electrónico de phishing calificado como "pocos" o "más difícil" presenta menos indicios o señales que podrían ayudar a identificar su naturaleza maliciosa. En otras palabras, es más desafiante para los destinatarios detectar que se trata de un intento de phishing debido a la escasez de pistas evidentes en el mensaje. La falta de claras señales o indicios dificulta la identificación de la amenaza, lo que puede aumentar la efectividad del ataque, ya que los usuarios podrían ser menos propensos a notar cualquier actividad sospechosa en el correo electrónico.',
             'Alguno': 'Se evidencia que estos correos electrónicos pueden mostrar algunos elementos sospechosos, pero no son extremadamente evidentes ni totalmente sutiles. La evaluación de pistas en los correos electrónicos de phishing es crucial para que los usuarios puedan identificar posibles amenazas y tomar medidas de seguridad adecuadas.',
             'Muchos (menos difícil)': 'Hay múltiples indicadores o características en el correo electrónico que podrían levantar sospechas y alertar al destinatario sobre su naturaleza maliciosa. Este aumento en las señales no solo amplía las oportunidades para detectar el phishing, sino que también sugiere que el correo electrónico puede contener múltiples elementos sospechosos o incoherencias que podrían revelar su intención fraudulenta. ',
         },
-
     },
     // A.2 Alineación de premisas
     premise: {
         categoryId: 'categoryA2',
         descriptionId: 'A2CategoryDescription',
         levels: [
-            { upTo: 10, label: 'Débil' },
-            { upTo: 17, label: 'Medio' },
-            { upTo: Infinity, label: 'Fuerte' },
+            { upTo: 10, range: '10 o menos', label: 'Débil'},
+            { upTo: 17, range: '11-17', label: 'Medio'},
+            { upTo: Infinity, range: '18 o más', label: 'Fuerte'},
         ],
         descriptions: {
             'Fuerte': 'El contenido del correo electrónico se adapta de manera significativa y efectiva a las características, intereses o expectativas de la audiencia. Esta alta alineación dificulta la detección del correo electrónico como un intento de phishing, ya que se ajusta de manera convincente a las percepciones y contextos familiares para los destinatarios.',
@@ -103,6 +100,15 @@ function sumAnswers(tableId, valueOf) {
 
 function setText(id, text) {
     document.getElementById(id).textContent = text;
+}
+
+function renderScaleTable(tbodyId, block) {
+    const tbody = document.getElementById(tbodyId);
+    for (const level of block.levels) {
+        const row = tbody.insertRow();
+        row.insertCell().textContent = level.range;
+        row.insertCell().textContent = level.label;
+    }
 }
 
 // ****** Calcular puntajes por seccion ******//
@@ -136,6 +142,7 @@ function calculateScore() {
     // Determinar y mostrar la categoría de la sección A1
     const categoryA1 = determineCategory(CATEGORY_BLOCKS.cues, totalScore);
     setText('category1', categoryA1);
+
 
     // ********************** TABLA A2 *************************
     // Los elementos 1 a 4 suman; el 5 (capacitación) resta
@@ -178,7 +185,7 @@ function determineFinalCategory(categoryA1, categoryA2) {
 
     let finalCategory = '';
     // Combinar categorías y subcategorías
-    // Moderadamente difícil
+        // Moderadamente difícil
     if ((categoryA1 === 'Pocos (más difícil)' && categoryA2 === 'Débil')
         || (categoryA1 === 'Alguno' && categoryA2 === 'Medio')
         || (categoryA1 === 'Muchos (menos difícil)' && categoryA2 === 'Medio')
@@ -250,3 +257,14 @@ document.addEventListener('click', event => {
         restart();
     }
 });
+
+// Recalcular los puntajes cada vez que se cambia una respuesta
+document.addEventListener('change', event => {
+    if (event.target.matches('select')) {
+        calculateScore();
+    }
+});
+
+renderScaleTable('scalePresence', CATEGORY_BLOCKS.presence);
+renderScaleTable('scaleCount', CATEGORY_BLOCKS.count);
+renderScaleTable('scalePremise', CATEGORY_BLOCKS.premise);

@@ -39,7 +39,6 @@ h3 {
 table {
     width: 50%;
     border-collapse: collapse;
-    /* margin: 0 auto; alinearlo al centro*/
 }
 
 th {
@@ -102,8 +101,22 @@ td select {
     visibility: visible;
 }
 
-
 .result-very-hard      { background-color: #f28b82; }
 .result-moderate       { background-color: #f5b061; }
 .result-moderate-easy  { background-color: #f0ee82; }
 .result-easy           { background-color: #a8d5a2; }
+
+/* Espaciado entre bloques */
+h2, p, table {
+    margin-bottom: 18px;
+}
+
+/* Colores de encabezado */
+.bg-dark          { background-color: #242424; }
+.bg-blue          { background-color: #84b6f4; }
+.bg-lilac         { background-color: #bc98f3; }
+.bg-pink          { background-color: #D676B8; }
+.bg-blue-strong   { background-color: #1E58BB; }
+.bg-purple        { background-color: #6D00BB; }
+.bg-wine          { background-color: #801C5D; }
+.bg-plum          { background-color: #802665; }
