@@ -283,8 +283,13 @@ document.addEventListener('click', event => {
         }
         showStep(gotoButton.dataset.goto);
     }
+
     if (event.target.closest('[data-action="restart"]')) {
         restart();
+    }
+
+    if (event.target.closest('[data-action="print"]')) {
+        printResults();
     }
 });
 
@@ -302,3 +307,31 @@ document.addEventListener('change', event => {
 
 renderScaleTable('scalePresence', CATEGORY_BLOCKS.presence);
 renderScaleTable('scaleCount', CATEGORY_BLOCKS.count);
+
+
+// ------------------------- IMPRIMIR / PDF -------------------------
+const originalTitle = document.title;
+
+function pad(number) {
+    return String(number).padStart(2, '0');
+}
+
+// Pone la fecha en la página y el nombre sugerido del archivo (el navegador usa el título)
+function preparePrint() {
+    const now = new Date();
+    const date = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+    const time = `${pad(now.getHours())}-${pad(now.getMinutes())}`;
+    document.title = `Resultado-phishing-${date}_${time}`;
+    setText('printDate', `Generado el ${now.toLocaleString('es-CL', { dateStyle: 'long', timeStyle: 'short' })}`);
+}
+
+function printResults() {
+    preparePrint();
+    window.print();
+}
+
+// Ctrl+P
+window.addEventListener('beforeprint', preparePrint);
+window.addEventListener('afterprint', () => {
+    document.title = originalTitle;
+});
