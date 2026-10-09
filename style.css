@@ -214,3 +214,24 @@ td select {
 .step-buttons button[data-action="restart"]::after {
     content: "↻";
 }
+
+/**** Alerta de preguntas sin respondeer  *******/
+
+/* Asterisco rojo al lado de la pregunta que falta */
+tr.unanswered > td:first-child::after {
+    content: " *";
+    color: #D32F2F;
+    font-weight: 700;
+}
+
+/* Borde rojo en el select que falta */
+tr.unanswered select {
+    border-color: #D32F2F;
+}
+
+/* Mensaje de error sobre los botones */
+.validation-message {
+    color: #D32F2F;
+    text-align: right;
+    margin-bottom: 12px;
+}

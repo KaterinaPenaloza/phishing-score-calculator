@@ -231,6 +231,12 @@ function restart() {
     for (const select of document.querySelectorAll('select')) {
         select.value = '';
     }
+    for (const row of document.querySelectorAll('.unanswered')) {
+        row.classList.remove('unanswered');
+    }
+    for (const message of document.querySelectorAll('.validation-message')) {
+        message.hidden = true;
+    }
     calculateScore();
     showStep('step-cues');
 }
@@ -240,15 +246,39 @@ function countUnanswered(section) {
     return [...section.querySelectorAll('select')].filter(select => select.value === '').length;
 }
 
+function markUnanswered(section) {
+    for (const select of section.querySelectorAll('select')) {
+        select.closest('tr').classList.toggle('unanswered', select.value === '');
+    }
+}
+
+function setValidationMessage(section, text) {
+    let message = section.querySelector('.validation-message');
+    if (!message) {
+        if (text === '') return;
+        message = document.createElement('p');
+        message.className = 'validation-message';
+        message.setAttribute('role', 'alert');
+        section.querySelector('.step-buttons').before(message);
+    }
+    message.textContent = text;
+    message.hidden = text === '';
+}
+
 document.addEventListener('click', event => {
     const gotoButton = event.target.closest('[data-goto]');
         if (gotoButton) {
         // Los botones con data-validate exigen que la sección actual esté completa
         if (gotoButton.hasAttribute('data-validate')) {
-            const missing = countUnanswered(gotoButton.closest('section'));
+            const section = gotoButton.closest('section');
+            const missing = countUnanswered(section);
             if (missing > 0) {
-                alert(`Hay preguntas sin responder (${missing}).`);
-                return;
+                markUnanswered(section);
+                setValidationMessage(section, missing === 1
+                    ? 'Tienes 1 pregunta sin responder.' : `Tienes ${missing} preguntas sin responder.`);
+                // llevar a la primera pregunta que falta
+                section.querySelector('.unanswered').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return;
             }
         }
         showStep(gotoButton.dataset.goto);
@@ -262,6 +292,11 @@ document.addEventListener('click', event => {
 document.addEventListener('change', event => {
     if (event.target.matches('select')) {
         calculateScore();
+        event.target.closest('tr').classList.remove('unanswered');
+        const section = event.target.closest('section');
+        if (!section.querySelector('.unanswered')) {
+            setValidationMessage(section, '');
+        }
     }
 });
 
