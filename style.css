@@ -369,31 +369,13 @@ tr.unanswered select {
     margin-bottom: 12px;
 }
 
-/******** Disclaimer y fecha ********/
-.print-only {
-    display: none;
+
+.row-label {
+    text-align: center;
+    font-size: 14px;
 }
 
-.disclaimer {
-    margin-top: 32px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
-}
 
-.disclaimer p {
-    font-size: 12px;
-    margin-bottom: 0;
-}
-
-.disclaimer a {
-    color: var(--accent-soft);
-}
-
-/******** Impresión / PDF ********/
-@page {
-    size: A4;
-    margin: 14mm;
-}
 
 /* Mobile */
 @media (max-width: 600px) {
@@ -509,4 +491,5 @@ tr.unanswered select {
     h2 {
         break-after: avoid;
     }
+    
 }
