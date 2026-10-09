@@ -16,20 +16,21 @@
         <h1>Calculadora de puntaje de phishing</h1>
     </div>
     <section id="step-cues">
-        <p>
-        La escala de phishing del NIST (Instituto Nacional de Estándares y Tecnología) es una herramienta que puede
-        utilizarse para evaluar el riesgo asociado con correos electrónicos de phishing. Este tipo de correos electrónicos buscan
-        engañar a los destinatarios para que revelen información confidencial, como contraseñas, información financiera o datos
-        relevantes de una compañía.
-        La finalidad del presente documento, es ayudar a los profesionales de la seguridad informática a evaluar diferentes
-        aspectos del correo electrónico sospechoso (Phishing).
-    </p>
+        <p>La escala de phishing del NIST (Instituto Nacional de Estándares y Tecnología de EE. UU.) es un método 
+            para que quienes implementan programas de concientización sobre phishing califiquen qué tan difícil es 
+            para una persona detectar un correo electrónico de phishing, considerando tanto las propiedades del correo 
+            como las características de sus destinatarios.</p>
+        <p>El phishing es una técnica de ingeniería social que busca que 
+            el destinatario realice una acción beneficiosa para el atacante, como hacer clic en un enlace fraudulento o 
+            descargar un archivo adjunto malicioso. Esta calculadora aplica la escala en tres pasos: señales del correo (A.1), 
+            alineación de premisas (A.2) y dificultad de detección (A.3).</p>
 
     <!-- Seccion A.1 Email Cues -->
-    <h2>A.1 Señales del correo electrónico Parte 1: presencia</h2>
-    <p>Esta sección se utiliza para evaluar la presencia de señales de phishing en un correo electrónico,
-        proporcionando un enfoque sistemático para determinar la probabilidad de que el correo electrónico sea malicioso.
-        La categorización se realiza en función del conteo total de señales observadas.</p>
+    <h2>A.1 Señales del correo electrónico parte 1: Presencia</h2>
+    <p>Las señales son las propiedades de un correo electrónico que inducen al usuario a hacer clic en un enlace o adjunto 
+        fraudulento, o que lo alertan de que podría ser phishing. Cuantas menos señales tiene un correo de phishing, más 
+        difícil es detectarlo; cuantas más tiene, más fácil. Esta sección cuenta las señales presentes y las clasifica en Pocas, 
+        Algunas o Muchas.</p>
     <p>Responda “sí” o “no” a las siguientes preguntas</p>
     <!-- Preguntas Parte 1 (A1_1)-->
     
@@ -45,7 +46,7 @@
         <!-- Pregunta 1 -->
         <tr>
             <td>
-                ¿El nombre del remitente no está relacionado con la dirección de correo electrónico?
+                ¿El nombre del remitente no está relacionado con la dirección de correo electrónico, incluida la dirección de respuesta (reply-to)?
             </td>
             <td>
                 <select name="A1Q1">
@@ -58,7 +59,8 @@
                 ?
                 <div class="tooltiptext">Por ejemplo, si el nombre muestra ser de una entidad específica, pero la
                     dirección de correo no está alineada con esa entidad, podría ser una señal de que el remitente es
-                    falso o está intentando suplantar la identidad de alguien más.</div>
+                    falso o está intentando suplantar la identidad de alguien más.
+                </div>
             </td>
         </tr>
         <!-- Pregunta 2 -->
@@ -75,8 +77,8 @@
             </td>
             <td class="tooltip td-invisible">
                 ?
-                <div class="tooltiptext">Se evalúa si el dominio aparenta pertenecer a una entidad conocida y legítima, o se parece mucho a uno. 
-                    Si es así, cuenta como señal de suplantación.</div>
+                <div class="tooltiptext">Cuenta como señal si el dominio de la dirección del remitente parece pertenecer 
+                    a una entidad conocida por el público objetivo, o se parece mucho al de una</div>
             </td>
         </tr>
         <!-- Indicadores de presentación visual -->
@@ -98,9 +100,9 @@
             </td>
             <td class="tooltip td-invisible">
                 ?
-                <div class="tooltiptext">En otras palabras, se está verificando si el mensaje exhibe signos de
-                    autenticidad y coherencia con la identidad visual de la marca que supuestamente representa.
-                    No se cuenta si ese tipo de correo normalmente no lleva marca (por ejemplo, el de un colega).
+                <div class="tooltiptext">Se refiere a si faltan logotipos, banners, textos o tipografías de marca 
+                    que se esperaría ver (por ejemplo, en un correo de un proveedor externo). No cuente esta señal 
+                    si un correo típico de ese remitente no llevaría marca, como el de un colega.
             </div>
             </td>
         </tr>
@@ -119,7 +121,9 @@
             <td class="tooltip td-invisible">
                 ?
                 <div class="tooltiptext">Esta pregunta se centra en la apariencia visual y presentación del correo
-                    electrónico, evaluando si su diseño y formato sugieren una falta de profesionalismo.</div>
+                    electrónico, evaluando si su diseño y formato sugieren una falta de profesionalismo.
+                    El diseño o formato rompe prácticas profesionales habituales: saltos de línea a mitad de una oración, 
+                    resaltados inapropiados o texto y encabezados con formato anormal.</div>
             </td>
         </tr>
         <!-- Idioma y contenido -->
@@ -141,8 +145,9 @@
             </td>
             <td class="tooltip td-invisible">
                 ?
-                <div class="tooltiptext">La falta de un saludo genérico puede ser indicativa de un correo electrónico
-                    impersonal o potencialmente malicioso.</div>
+                <div class="tooltiptext">El correo no trae ningún saludo, formal o informal. 
+                    Un correo sin saludo o con un saludo genérico no se dirige a una persona concreta, 
+                    por eso se cuenta como señal.</div>
             </td>
         </tr>
         <!-- Pregunta 6 -->
@@ -159,15 +164,16 @@
             </td>
             <td class="tooltip td-invisible">
                 ?
-                <div class="tooltiptext">La falta de personalización podría indicar que el correo electrónico es parte
-                    de un intento de phishing masivo, donde los atacantes envían mensajes idénticos a múltiples
-                    destinatarios sin adaptar el contenido a cada uno.</div>
+                <div class="tooltiptext">El mensaje no se dirige al destinatario de forma personal (por ejemplo, no usa su nombre) 
+                    y podría haberse enviado igual a cualquier persona. 
+                    La falta de personalización podría indicar que el correo electrónico es parte de un intento de phishing masivo, 
+                    donde los atacantes envían mensajes idénticos a múltiples destinatarios sin adaptar el contenido a cada uno.</div>
             </td>
         </tr>
         <!-- Pregunta 7 -->
         <tr>
             <td>
-                ¿Al mensaje le faltan detalles, como el remitente o información de contacto?
+                ¿Al mensaje le faltan detalles sobre el remitente, como la firma de una persona o información de contacto?
             </td>
             <td>
                 <select name="A1Q7">
@@ -178,8 +184,8 @@
             </td>
             <td class="tooltip td-invisible">
                 ?
-                <div class="tooltiptext">Se está evaluando si el mensaje presenta una falta de información
-                    identificativa sobre quién lo envió, lo cual podría ser un indicador de sospecha.</div>
+                <div class="tooltiptext">En el cuerpo del correo falta la firma de una persona o los datos de contacto 
+                    (cargo, teléfono, fax, correo o dirección comercial).</div>
             </td>
         </tr>
         <!-- Tácticas comunes -->
@@ -190,7 +196,7 @@
         <!-- Pregunta 8 -->
         <tr>
             <td>
-                ¿El mensaje parece ser un proceso laboral o relacionado con algún negocio del rubro?
+                ¿El mensaje parece corresponder a un proceso laboral o de negocio (por ejemplo, un aviso de buzón de voz, entrega de un paquete, confirmación de pedido o notificación de factura)?
             </td>
             <td>
                 <select name="A1Q8">
@@ -201,15 +207,14 @@
             </td>
             <td class="tooltip td-invisible">
                 ?
-                <div class="tooltiptext">Un mensaje que parece estar relacionado con procesos laborales o aspectos
-                    específicos del negocio del destinatario puede ser considerado más legítimo y menos propenso a ser
-                    parte de un intento de phishing.</div>
+                <div class="tooltiptext">Los atacantes imitan procesos laborales o de negocio porque resultan familiares y 
+                    creíbles. Por eso, si el correo aparenta ser uno de ellos, se cuenta como señal.</div>
             </td>
         </tr>
         <!-- Pregunta 9 -->
         <tr>
             <td>
-                ¿El mensaje parece provenir de un amigo, colega, jefe u otra entidad autoritaria acreditada?
+                ¿El mensaje parece provenir de un amigo, colega, jefe, otra figura de autoridad o una entidad de confianza?
             </td>
             <td>
                 <select name="A1Q9">
@@ -220,16 +225,18 @@
             </td>
             <td class="tooltip td-invisible">
                 ?
-                <div class="tooltiptext"> La apariencia de familiaridad o autoridad en el mensaje podría ser una táctica
-                    común en los intentos de phishing, donde los atacantes buscan ganarse la confianza de la víctima
-                    para que tome acciones no deseadas, como hacer clic en enlaces maliciosos o proporcionar información
-                    confidencial.</div>
+                <div class="tooltiptext">El remitente aparenta ser alguien en quien el destinatario confiaría 
+                    (jefatura, organización legítima, familia o amistades). Los atacantes usan esa apariencia 
+                    para ganar confianza y lograr que se actúe sobre un enlace o adjunto.</div>
             </td>
         </tr>
     </table>
     <!-- Preguntas Parte 2 (A1_2)-->
-    <h2>A.1 Señales del correo electrónico – Parte 2: conteo</h2>
-    <p>Cuente el número total de veces que aparece lo siguiente en el correo electrónico:</p>
+    <h2>A.1 Señales del correo electrónico parte 2: Conteo</h2>
+    <p>Cuente el número total de veces que aparece lo siguiente en el correo electrónico.</p>
+    <p>Una misma característica puede contar como más de una señal: por ejemplo, un enlace 
+        que se muestra como "www.niist.gov" pero dirige a "commerce.gov" cuenta como error 
+        de ortografía y como enlace que oculta la URL real.</p>
     <table id="questionsTableA1_2">
         <tr class="bg-lilac">
             <th colspan="2">Tabla 1 – Parte 2: Conteo de señales</th>
@@ -282,7 +289,7 @@
                 ?
                 <div class="tooltiptext">Errores gramaticales y discrepancias en la concordancia plural podrían indicar
                     un intento de phishing, ya que los atacantes a menudo cometen errores en el lenguaje que podrían
-                    delatar la falsedad del mensaje.</div>
+                    delatar la falsedad del mensaje. Incluya errores gramaticales y de concordancia de número.</div>
             </td>
         </tr>
         <!-- Pregunta 3 -->
@@ -305,7 +312,9 @@
                 ?
                 <div class="tooltiptext">Al evaluar las inconsistencias, se está buscando identificar posibles señales
                     de un correo electrónico malicioso o de phishing, ya que estos a menudo contienen elementos
-                    contradictorios o engañosos.</div>
+                    contradictorios o engañosos.
+                    Cuente elementos que parecerían raros en un correo legítimo. 
+                    Por ejemplo, el cuerpo menciona un adjunto .doc pero el archivo es .zip, o la firma no coincide con el remitente del campo "De".</div>
             </td>
         </tr>
         <!-- Indicadores Técnicos -->
@@ -333,7 +342,8 @@
                 ?
                 <div class="tooltiptext">Archivos adjuntos potencialmente peligrosos a menudo incluyen malware, scripts
                     maliciosos u otros elementos que podrían comprometer la seguridad del sistema o la información
-                    almacenada en él.</div>
+                    almacenada en él. El NIST cuenta cualquier tipo de adjunto, no solo los que se sepa que son maliciosos: 
+                    imágenes (.jpeg), PDF, ejecutables (.exe), comprimidos (.zip), etc.</div>
             </td>
         </tr>
         <!-- Pregunta 5 -->
@@ -378,7 +388,10 @@
             <td class="tooltip td-invisible">
                 ?
                 <div class="tooltiptext">Se busca identificar la cantidad de enlaces que podrían ser percibidos como
-                    legítimos y relacionados con una entidad conocida.</div>
+                    legítimos y relacionados con una entidad conocida.
+                    Cuente cada enlace cuyo dominio (en el texto visible o en la URL que aparece al pasar el cursor) 
+                    parezca de una entidad conocida por el público objetivo, por ejemplo ni-st.gov o nist.com en lugar 
+                    de nist.gov. No se cuenta si el texto y la URL coinciden y llevan a un sitio legítimo.</div>
             </td>
         </tr>
         <!-- Indicadores de presentación visual -->
@@ -450,9 +463,11 @@
             </td>
             <td class="tooltip td-invisible">
                 ?
-                <div class="tooltiptext">Se está evaluando cuántos de estos indicadores no apropiados están presentes en
-                    el correo electrónico, lo que podría indicar un intento de engañar al destinatario para que crea
-                    falsamente en la autenticidad o seguridad del mensaje.</div>
+                <div class="tooltiptext">Cuente candados, sellos de seguridad o textos como "firmado digitalmente" 
+                    dentro del cuerpo del correo, que buscan dar apariencia de seguridad. 
+                    Se está evaluando cuántos de estos indicadores no apropiados están presentes en el correo electrónico, 
+                    lo que podría indicar un intento de engañar al destinatario para que crea falsamente en la autenticidad 
+                    o seguridad del mensaje.</div>
             </td>
         </tr>
         <!-- Idioma y contenido -->
@@ -463,7 +478,7 @@
         <!-- Pregunta 10 -->
         <tr>
             <td>
-                ¿Cuántas veces se utiliza lenguaje legal en el mensaje, como derechos de autor?
+                ¿Cuántas veces se utiliza lenguaje legal en el mensaje, como información de derechos de autor, descargos de responsabilidad o información tributaria?
             </td>
             <td>
                 <select name="A1Q19">
@@ -478,9 +493,9 @@
             </td>
             <td class="tooltip td-invisible">
                 ?
-                <div class="tooltiptext">La detección de un uso excesivo o inapropiado de terminología legal puede ser
-                    una señal de alerta, ya que los intentos de phishing o correos electrónicos maliciosos a menudo
-                    evitan este tipo de lenguaje para evitar levantar sospechas.</div>
+                <div class="tooltiptext">Cuente textos de tipo legal, como advertencias de seguridad, 
+                    marcas registradas, derechos de autor u otros avisos legales, que suelen ir al final. 
+                    No toda letra pequeña es un descargo de responsabilidad.</div>
             </td>
         </tr>
         <!-- Pregunta 11 -->
@@ -502,14 +517,14 @@
             <td class="tooltip td-invisible">
                 ?
                 <div class="tooltiptext">Se está buscando cuantificar la cantidad de detalles que podrían no ser
-                    fundamentales para comprender el mensaje principal.</div>
+                    fundamentales para comprender el mensaje principal. Cuente cualquier contenido que no sea 
+                    central para el propósito del correo, por ejemplo una nota como "Este es un correo automático".</div>
             </td>
         </tr>
         <!-- Pregunta 12 -->
         <tr>
             <td>
-                ¿Cuántas solicitudes de información confidencial hay en el correo electrónico, incluida información de
-                identificación personal o credenciales?
+                ¿Cuántas solicitudes de información sensible hay en el correo electrónico, incluida información de identificación personal o credenciales?
             </td>
             <td>
                 <select name="A1Q21">
@@ -524,7 +539,8 @@
             </td>
             <td class="tooltip td-invisible">
                 ?
-                <div class="tooltiptext">Identificar el número de solicitudes de información confidencial es crucial
+                <div class="tooltiptext">Cuente solicitudes de datos personales o de algo ligado a las finanzas o la identidad 
+                    de una persona u organización. Identificar el número de solicitudes de información confidencial es crucial
                     para evaluar el riesgo de un correo electrónico y su potencial para ser parte de un intento de phishing.</div>
             </td>
         </tr>
@@ -546,7 +562,9 @@
             </td>
             <td class="tooltip td-invisible">
                 ?
-                <div class="tooltiptext"> Identificar la presión de tiempo en un correo electrónico es relevante, ya que
+                <div class="tooltiptext">Cuente plazos explícitos y también frases que presionan de forma implícita, 
+                    como "inmediatamente" o "de inmediato". 
+                    Identificar la presión de tiempo en un correo electrónico es relevante, ya que
                     los intentos de phishing o estafas a menudo emplean tácticas que buscan presionar a los
                     destinatarios para que actúen de manera impulsiva sin tomar el tiempo necesario para verificar la
                     autenticidad del mensaje.</div>
@@ -570,9 +588,10 @@
             </td>
             <td class="tooltip td-invisible">
                 ?
-                <div class="tooltiptext">Las amenazas explícitas son aquellas que se comunican directamente, mientras
-                    que las amenazas implícitas pueden estar subyacentes o sugerirse de manera indirecta en el contenido
-                    del mensaje.</div>
+                <div class="tooltiptext">Cuente amenazas por no actuar, sean personales, laborales o legales, incluidas 
+                    las implícitas. 
+                    Las amenazas explícitas son aquellas que se comunican directamente, mientras que las amenazas implícitas 
+                    pueden estar subyacentes o sugerirse de manera indirecta en el contenido del mensaje.</div>
             </td>
         </tr>
         <!-- Tácticas comunes -->
@@ -583,7 +602,7 @@
         <!-- Pregunta 15 -->
         <tr>
             <td>
-                ¿Cuántos llamamientos hace el correo electrónico para ayudar a los demás?
+                ¿Cuántos llamados hace el correo electrónico para ayudar a los demás?
             </td>
             <td>
                 <select name="A1Q24">
@@ -598,7 +617,7 @@
             </td>
             <td class="tooltip td-invisible">
                 ?
-                <div class="tooltiptext">En este contexto, "llamamientos" se refiere a solicitudes de asistencia o ayuda
+                <div class="tooltiptext">En este contexto, "llamados" se refiere a solicitudes de asistencia o ayuda
                     que el correo electrónico puede contener. Evaluar cuántas veces se hace referencia a la necesidad de
                     ayuda en el mensaje puede ser relevante para determinar la autenticidad del correo electrónico.
                 </div>
@@ -647,10 +666,9 @@
             </td>
             <td class="tooltip td-invisible">
                 ?
-                <div class="tooltiptext">La presencia de detalles personalizados y sorpresivos puede ser un indicador
-                    de autenticidad y legitimidad, mientras que la falta de personalización podría sugerir que el correo
-                    electrónico es genérico o incluso parte de un intento de phishing, donde los atacantes envían
-                    mensajes idénticos a múltiples destinatarios.</div>
+                <div class="tooltiptext">Cuente ofrecimientos especiales e inesperados dirigidos solo al destinatario 
+                    (por ejemplo, una tarjeta de un admirador secreto o un cupón de cumpleaños). 
+                    Solo se cuenta cuando se ofrece algo especial, no por el hecho de recibir el correo.</div>
             </td>
         </tr>
         <!-- Pregunta 18 -->
@@ -671,7 +689,9 @@
             </td>
             <td class="tooltip td-invisible">
                 ?
-                <div class="tooltiptext">Este tipo de práctica es común en estrategias de marketing, donde se utiliza la
+                <div class="tooltiptext">Cuente ofertas con plazo explícito (por ejemplo, "la oferta vence en 14 días"). 
+                    Es distinta de la presión de tiempo, porque solo se cuenta si el correo ofrece algo al destinatario. 
+                    Este tipo de práctica es común en estrategias de marketing, donde se utiliza la
                     urgencia temporal para incentivar a los destinatarios a tomar medidas rápidas, como hacer una compra
                     o participar en una oferta especial.</div>
             </td>
@@ -787,22 +807,20 @@
 
     <!-- Seccion A.2 -->
     <h2>A.2 Alineación de premisas</h2>
-    <p>La alineación de las premisas es una medida de qué tan cerca coincide un correo electrónico con las funciones o
-        responsabilidades laborales del destinatario u organización de un correo electrónico. Cuanto más fuerte sea la
-        alineación de las premisas de un correo electrónico, más difícil será detectarlo como phishing. A la inversa,
-        cuanto más débil sea la alineación de las premisas de un correo electrónico, más fácil será detectarlo como
-        phishing.
+    <p>La alineación de premisas mide qué tan estrechamente coincide un correo electrónico con las funciones o responsabilidades 
+        laborales de su destinatario o de su organización. Cuanto más fuerte es la alineación, más difícil resulta detectarlo 
+        como phishing; a la inversa, cuanto más débil, más fácil.
     </p>
     <p>Para cada elemento de la tabla, asigne una puntuación de aplicabilidad de acuerdo con la escala de aplicabilidad
         presentada a continuación
     </p>
     <!-- Escala de aplicabilidad -->
     <p>
-        <strong>8: </strong>Aplicación extrema, alineación o relevancia.<br>
-        <strong>6: </strong>Aplicación significativa.<br>
-        <strong>4: </strong>Aplicación moderada.<br>
-        <strong>2: </strong>Aplicación baja.<br>
-        <strong>0: </strong>No aplica o sin relevancia.
+        <strong>8: </strong>Aplicabilidad, alineación o relevancia extrema.<br>
+        <strong>6: </strong>Aplicabilidad, alineación o relevancia significativa.<br>
+        <strong>4: </strong>Aplicabilidad, alineación o relevancia moderada.<br>
+        <strong>2: </strong>Aplicabilidad, alineación o relevancia baja.<br>
+        <strong>0: </strong>No aplica, sin alineación o sin relevancia.
     </p>
 
     <!-- Preguntas de Alineamiento de premisas -->
@@ -828,16 +846,16 @@
             </td>
             <td class="tooltip td-invisible">
                 ?
-                <div class="tooltiptext">La pregunta considera la aplicabilidad del correo electrónico para facilitar
-                    los procesos de trabajo, la comunicación interna, la coordinación de proyectos y otras prácticas
-                    laborales específicas.</div>
+                <div class="tooltiptext">Evalúa si la premisa del correo imita un proceso o práctica que realmente ocurre 
+                    en la organización del público objetivo. Por ejemplo, un aviso de mensaje de chat perdido tiene 
+                    aplicabilidad baja si el chat oficial notifica mediante una app, y alta si lo habitual es notificar 
+                    por correo.</div>
             </td>
         </tr>
         <!-- Pregunta 2 -->
         <tr>
             <td>
-                ¿Qué tan acertado es el contenido del correo electrónico para las funciones y responsabilidades del
-                público objetivo?
+                ¿Qué tan pertinente es la premisa del correo electrónico para las funciones y responsabilidades del público objetivo?
             </td>
             <td>
                 <select name="A2Q2">
@@ -851,9 +869,10 @@
             </td>
             <td class="tooltip td-invisible">
                 ?
-                <div class="tooltiptext">Una respuesta afirmativa indicaría que el contenido está alineado con las
-                    necesidades y expectativas del público objetivo, mientras que una respuesta negativa podría sugerir
-                    que el mensaje puede no ser auténtico o estar diseñado para confundir a los destinatarios.</div>
+                <div class="tooltiptext">Evalúa qué tan relacionada está la premisa con el trabajo del público objetivo. 
+                    Por ejemplo, un correo sobre un pago atrasado tiene alta aplicabilidad para el área de finanzas. 
+                    También influye el dominio del remitente: uno igual o similar al de la organización aumenta la 
+                    aplicabilidad. Si la premisa solo aplica a una parte del público, corresponde un valor intermedio.</div>
             </td>
         </tr>
         <!-- Pregunta 3 -->
@@ -874,11 +893,10 @@
             </td>
             <td class="tooltip td-invisible">
                 ?
-                <div class="tooltiptext">En esencia, busca evaluar si el contenido del correo electrónico es consistente
-                    y tiene sentido en relación con otras circunstancias o eventos, incluso aquellos que no están
-                    directamente vinculados al lugar de trabajo. Por ejemplo, si el correo electrónico hace referencia a
-                    eventos externos o situaciones que no guardan relación con la actividad laboral normal, podría ser
-                    una señal de que el mensaje es sospechoso o potencialmente malicioso.</div>
+                <div class="tooltiptext">Evalúa si la premisa coincide con una situación o evento actual, interno o externo, 
+                    que afecta a la organización (Navidad, Año Nuevo, cambio de directivo, inicio o cierre del año fiscal). 
+                    Si el evento es actual y relevante, el puntaje es más alto; si no lo es (por ejemplo, una invitación a una 
+                    fiesta de invierno en pleno verano), es más bajo.</div>
             </td>
         </tr>
         <!-- Pregunta 4 -->
@@ -899,11 +917,10 @@
             </td>
             <td class="tooltip td-invisible">
                 ?
-                <div class="tooltiptext">Se está evaluando el nivel de duda o preocupación que puede surgir en la mente
-                    del usuario al enfrentar la decisión de interactuar con elementos como enlaces o archivos adjuntos
-                    en un mensaje. La incertidumbre puede estar relacionada con la autenticidad del remitente, la
-                    seguridad de los enlaces o la posibilidad de que los archivos adjuntos contengan contenido
-                    malicioso.</div>
+                <div class="tooltiptext">Evalúa qué tan graves pueden parecer las consecuencias de no actuar. 
+                    Un aviso de mensaje perdido o informativo genera poca preocupación (puntaje bajo); una 
+                    acusación seria, como filtración de información protegida, exposición de datos personales 
+                    o ransomware, genera mucha (puntaje alto).</div>
             </td>
         </tr>
         <!-- Pregunta 5 -->
@@ -925,7 +942,8 @@
                 ?
                 <div class="tooltiptext">La pregunta sugiere la importancia de determinar hasta qué punto esta
                     capacitación se traduce en una habilidad práctica y valiosa para los individuos en su capacidad para
-                    identificar y prevenir ataques de correo electrónico maliciosos.</div>
+                    identificar y prevenir ataques de correo electrónico maliciosos.
+                    Un puntaje alto indica mucha capacitación específica y se resta del total, porque ayuda a detectar el phishing.</div>
             </td>
         </tr>
     </table>
@@ -985,10 +1003,10 @@
     <h2>Resultados Finales</h2>
     <!-- Final A.3-->
     <h2>A.3 Detección de dificultad</h2>
-    <p>La dificultad de detección del phishing humano es el resultado de aplicar la escala de phishing del NIST a un
-        correo electrónico. <br>En otras palabras, se utiliza esta herramienta o método de medición proporcionado por la
-        NIST para determinar el grado de percepción y conciencia que los destinatarios pueden tener al enfrentarse a
-        correos electrónicos potencialmente maliciosos.</p>
+    <p>La dificultad de detección es el resultado de aplicar la escala de phishing del NIST a un correo electrónico: 
+        indica qué tan fácil o difícil resulta para una persona detectarlo como phishing. <br>
+        Se determina combinando la categoría de señales (A.1) con la categoría de alineación de premisas (A.2), 
+        y sirve para contextualizar las tasas de clic y de reporte en ejercicios de concientización sobre phishing..</p>
 
     <table>
         <tr>

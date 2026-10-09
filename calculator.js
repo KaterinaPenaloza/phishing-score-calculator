@@ -275,7 +275,7 @@ document.addEventListener('click', event => {
             if (missing > 0) {
                 markUnanswered(section);
                 setValidationMessage(section, missing === 1
-                    ? 'Tienes 1 pregunta sin responder.' : `Tienes ${missing} preguntas sin responder.`);
+                    ? 'Tiene 1 pregunta sin responder.' : `Tiene ${missing} preguntas sin responder.`);
                 // llevar a la primera pregunta que falta
                 section.querySelector('.unanswered').scrollIntoView({ behavior: 'smooth', block: 'center' });
             return;
@@ -302,4 +302,3 @@ document.addEventListener('change', event => {
 
 renderScaleTable('scalePresence', CATEGORY_BLOCKS.presence);
 renderScaleTable('scaleCount', CATEGORY_BLOCKS.count);
-renderScaleTable('scalePremise', CATEGORY_BLOCKS.premise);
