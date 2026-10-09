@@ -15,6 +15,7 @@
     <div class="header">
         <h1>Calculadora de puntaje de phishing</h1>
     </div>
+    <p class="print-only" id="printDate"></p>
     <section id="step-cues">
         <p>La escala de phishing del NIST (Instituto Nacional de Estándares y Tecnología de EE. UU.) es un método 
             para que quienes implementan programas de concientización sobre phishing califiquen qué tan difícil es 
@@ -1025,6 +1026,9 @@
             <td id="category2Description"></td>
         </tr>
         <tr>
+            <th colspan="2" class="bg-blue-strong row-label">Resultado final: combinación de A.1 y A.2</th>
+        </tr>
+        <tr>
             <td id="finalCategory"></td>
             <td id="finalCategoryDescription"></td>
         </tr>
@@ -1032,8 +1036,19 @@
     <div class="step-buttons">
         <button type="button" data-goto="step-premise-result">Volver</button>
         <button type="button" data-action="restart">Reiniciar</button>
+        <button type="button" data-action="print">Descargar PDF</button>
     </div>
     </section>
+    <footer class="disclaimer">
+        <p>
+            Esta calculadora es un proyecto educativo sin fines de lucro, basado en el NIST Phish Scale User Guide
+            (NIST TN 2276), de Shanée Dawkins y Jody Jacobs (2023),
+            disponible en <a href="https://doi.org/10.6028/NIST.TN.2276">https://doi.org/10.6028/NIST.TN.2276</a>.
+            No es una herramienta oficial del NIST ni cuenta con su respaldo. Según el NIST, la escala es de uso libre
+            con fines académicos; cualquier uso comercial requiere una licencia del NIST. Los resultados son
+            referenciales y deben interpretarse según el contexto de cada organización.
+        </p>
+    </footer>
 
     <script src="calculator.js"></script>
 </body>
