@@ -20,16 +20,15 @@
         La escala de phishing del NIST (Instituto Nacional de Estándares y Tecnología) es una herramienta que puede
         utilizarse para evaluar el riesgo asociado con correos electrónicos de phishing. Este tipo de correos electrónicos buscan
         engañar a los destinatarios para que revelen información confidencial, como contraseñas, información financiera o datos
-        relevantes de una compañia.
+        relevantes de una compañía.
         La finalidad del presente documento, es ayudar a los profesionales de la seguridad informática a evaluar diferentes
-        aspectos del correo electrónico sospechoso (Phishing)
+        aspectos del correo electrónico sospechoso (Phishing).
     </p><br>
 
     <!-- Seccion A.1 Email Cues -->
-    <h2>A.1 Señales del correo electrónico – Parte 1: presencia</h2><br>
+    <h2>A.1 Señales del correo electrónico Parte 1: presencia</h2><br>
     <p>Esta sección se utiliza para evaluar la presencia de señales de phishing en un correo electrónico,
-        proporcionando un enfoque sistemático para determinar la probabilidad de que el correo electrónico sea
-        malicioso.
+        proporcionando un enfoque sistemático para determinar la probabilidad de que el correo electrónico sea malicioso.
         La categorización se realiza en función del conteo total de señales observadas.</p><br>
     <p>Responda “sí” o “no” a las siguientes preguntas</p><br>
     <!-- Preguntas Parte 1 (A1_1)-->
@@ -49,7 +48,7 @@
                 ¿El nombre del remitente no está relacionado con la dirección de correo electrónico?
             </td>
             <td>
-                <select name="A1Q1" onchange="calculateScore()">
+                <select name="A1Q1">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="si">Sí</option>
                     <option value="no">No</option>
@@ -57,9 +56,9 @@
             </td>
             <td class="tooltip td-invisible">
                 ?
-                <div class="tooltiptext"> Por ejemplo, si el nombre muestra ser de una entidad específica, pero la
+                <div class="tooltiptext">Por ejemplo, si el nombre muestra ser de una entidad específica, pero la
                     dirección de correo no está alineada con esa entidad, podría ser una señal de que el remitente es
-                    falso o está intentando suplantar la identidad de alguien más</div>
+                    falso o está intentando suplantar la identidad de alguien más.</div>
             </td>
         </tr>
         <!-- Pregunta 2 -->
@@ -68,7 +67,7 @@
                 ¿Un nombre de dominio utilizado en la dirección de correo del remitente es plausiblemente similar al dominio de una entidad reconocible?
             </td>
             <td>
-                <select name="A1Q2" onchange="calculateScore()">
+                <select name="A1Q2">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="si">Sí</option>
                     <option value="no">No</option>
@@ -91,7 +90,7 @@
                 ¿El correo carece de elementos de marca apropiados como texto o logotipos?
             </td>
             <td>
-                <select name="A1Q3" onchange="calculateScore()">
+                <select name="A1Q3">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="si">Sí</option>
                     <option value="no">No</option>
@@ -100,7 +99,9 @@
             <td class="tooltip td-invisible">
                 ?
                 <div class="tooltiptext">En otras palabras, se está verificando si el mensaje exhibe signos de
-                    autenticidad y coherencia con la identidad visual de la marca que supuestamente representa.</div>
+                    autenticidad y coherencia con la identidad visual de la marca que supuestamente representa.
+                    No se cuenta si ese tipo de correo normalmente no lleva marca (por ejemplo, el de un colega).
+            </div>
             </td>
         </tr>
         <!-- Pregunta 4 -->
@@ -109,7 +110,7 @@
                 ¿El diseño y el formato del correo electrónico parecen poco profesionales?
             </td>
             <td>
-                <select name="A1Q4" onchange="calculateScore()">
+                <select name="A1Q4">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="si">Sí</option>
                     <option value="no">No</option>
@@ -118,7 +119,7 @@
             <td class="tooltip td-invisible">
                 ?
                 <div class="tooltiptext">Esta pregunta se centra en la apariencia visual y presentación del correo
-                    electrónico, evaluando si su diseño y formato sugieren una falta de profesionalismo</div>
+                    electrónico, evaluando si su diseño y formato sugieren una falta de profesionalismo.</div>
             </td>
         </tr>
         <!-- Idioma y contenido -->
@@ -132,7 +133,7 @@
                 ¿Le falta al correo electrónico un saludo genérico, como un saludo formal o informal?
             </td>
             <td>
-                <select name="A1Q5" onchange="calculateScore()">
+                <select name="A1Q5">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="si">Sí</option>
                     <option value="no">No</option>
@@ -141,7 +142,7 @@
             <td class="tooltip td-invisible">
                 ?
                 <div class="tooltiptext">La falta de un saludo genérico puede ser indicativa de un correo electrónico
-                    impersonal o potencialmente malicioso</div>
+                    impersonal o potencialmente malicioso.</div>
             </td>
         </tr>
         <!-- Pregunta 6 -->
@@ -150,7 +151,7 @@
                 ¿Le falta personalización al correo electrónico?
             </td>
             <td>
-                <select name="A1Q6" onchange="calculateScore()">
+                <select name="A1Q6">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="si">Sí</option>
                     <option value="no">No</option>
@@ -160,16 +161,16 @@
                 ?
                 <div class="tooltiptext">La falta de personalización podría indicar que el correo electrónico es parte
                     de un intento de phishing masivo, donde los atacantes envían mensajes idénticos a múltiples
-                    destinatarios sin adaptar el contenido a cada uno</div>
+                    destinatarios sin adaptar el contenido a cada uno.</div>
             </td>
         </tr>
         <!-- Pregunta 7 -->
         <tr>
             <td>
-                ¿Al mensaje le faltan detalles sobre el remitente, como el remitente o información de contacto?
+                ¿Al mensaje le faltan detalles, como el remitente o información de contacto?
             </td>
             <td>
-                <select name="A1Q7" onchange="calculateScore()">
+                <select name="A1Q7">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="si">Sí</option>
                     <option value="no">No</option>
@@ -178,7 +179,7 @@
             <td class="tooltip td-invisible">
                 ?
                 <div class="tooltiptext">Se está evaluando si el mensaje presenta una falta de información
-                    identificativa sobre quién lo envió, lo cual podría ser un indicador de sospecha</div>
+                    identificativa sobre quién lo envió, lo cual podría ser un indicador de sospecha.</div>
             </td>
         </tr>
         <!-- Tácticas comunes -->
@@ -192,7 +193,7 @@
                 ¿El mensaje parece ser un proceso laboral o relacionado con algún negocio del rubro?
             </td>
             <td>
-                <select name="A1Q8" onchange="calculateScore()">
+                <select name="A1Q8">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="si">Sí</option>
                     <option value="no">No</option>
@@ -202,7 +203,7 @@
                 ?
                 <div class="tooltiptext">Un mensaje que parece estar relacionado con procesos laborales o aspectos
                     específicos del negocio del destinatario puede ser considerado más legítimo y menos propenso a ser
-                    parte de un intento de phishing</div>
+                    parte de un intento de phishing.</div>
             </td>
         </tr>
         <!-- Pregunta 9 -->
@@ -211,7 +212,7 @@
                 ¿El mensaje parece provenir de un amigo, colega, jefe u otra entidad autoritaria acreditada?
             </td>
             <td>
-                <select name="A1Q9" onchange="calculateScore()">
+                <select name="A1Q9">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="si">Sí</option>
                     <option value="no">No</option>
@@ -245,7 +246,7 @@
                 ¿Cuántos errores de ortografía hay en el correo electrónico?
             </td>
             <td>
-                <select name="A1Q10" onchange="calculateScore()">
+                <select name="A1Q10">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -258,7 +259,7 @@
             <td class="tooltip td-invisible">
                 ?
                 <div class="tooltiptext">La intención es evaluar la calidad y autenticidad del mensaje, ya que la
-                    presencia de múltiples errores ortográficos puede ser indicativa de un intento de phishing o fraude
+                    presencia de múltiples errores ortográficos puede ser indicativa de un intento de phishing o fraude.
                 </div>
             </td>
         </tr>
@@ -268,7 +269,7 @@
                 ¿Cuántos errores gramaticales hay en el correo electrónico, incluida la pluralidad no coincidente?
             </td>
             <td>
-                <select name="A1Q11" onchange="calculateScore()">
+                <select name="A1Q11">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -282,7 +283,7 @@
                 ?
                 <div class="tooltiptext">Errores gramaticales y discrepancias en la concordancia plural podrían indicar
                     un intento de phishing, ya que los atacantes a menudo cometen errores en el lenguaje que podrían
-                    delatar la falsedad del mensaje</div>
+                    delatar la falsedad del mensaje.</div>
             </td>
         </tr>
         <!-- Pregunta 3 -->
@@ -291,7 +292,7 @@
                 ¿Cuántas inconsistencias hay en el correo electrónico?
             </td>
             <td>
-                <select name="A1Q12" onchange="calculateScore()">
+                <select name="A1Q12">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -305,7 +306,7 @@
                 ?
                 <div class="tooltiptext">Al evaluar las inconsistencias, se está buscando identificar posibles señales
                     de un correo electrónico malicioso o de phishing, ya que estos a menudo contienen elementos
-                    contradictorios o engañosos</div>
+                    contradictorios o engañosos.</div>
             </td>
         </tr>
         <!-- Indicadores Técnicos -->
@@ -319,7 +320,7 @@
                 ¿Cuántos archivos adjuntos potencialmente peligrosos se incluyen?
             </td>
             <td>
-                <select name="A1Q13" onchange="calculateScore()">
+                <select name="A1Q13">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -342,7 +343,7 @@
                 ¿Cuántas veces el texto oculta la URL verdadera en un hipervínculo?
             </td>
             <td>
-                <select name="A1Q14" onchange="calculateScore()">
+                <select name="A1Q14">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -355,7 +356,7 @@
             <td class="tooltip td-invisible">
                 ?
                 <div class="tooltiptext">En otras palabras, si hay intentos de ocultar la dirección real del enlace
-                    mediante el uso de texto engañoso. </div>
+                    mediante el uso de texto engañoso.</div>
             </td>
         </tr>
         <!-- Pregunta 6 -->
@@ -365,7 +366,7 @@
                 reconocible?
             </td>
             <td>
-                <select name="A1Q15" onchange="calculateScore()">
+                <select name="A1Q15">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -378,7 +379,7 @@
             <td class="tooltip td-invisible">
                 ?
                 <div class="tooltiptext">Se busca identificar la cantidad de enlaces que podrían ser percibidos como
-                    legítimos y relacionados con una entidad conocida</div>
+                    legítimos y relacionados con una entidad conocida.</div>
             </td>
         </tr>
         <!-- Indicadores de presentación visual -->
@@ -392,7 +393,7 @@
                 ¿Cuántos elementos de la marca (texto o logotipos) parecen ser una imitación?
             </td>
             <td>
-                <select name="A1Q16" onchange="calculateScore()">
+                <select name="A1Q16">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -415,7 +416,7 @@
                 ¿Cuántos elementos de la marca (texto o logotipos) parecen estar desactualizados?
             </td>
             <td>
-                <select name="A1Q17" onchange="calculateScore()">
+                <select name="A1Q17">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -427,8 +428,8 @@
             </td>
             <td class="tooltip td-invisible">
                 ?
-                <div class="tooltiptext">se está evaluando la presencia de elementos visuales o de texto que podrían
-                    haber cambiado con el tiempo, y que ahora pueden dar la impresión de ser antiguos o no estar al día
+                <div class="tooltiptext">Se está evaluando la presencia de elementos visuales o de texto que podrían
+                    haber cambiado con el tiempo, y que ahora pueden dar la impresión de ser antiguos o no estar al día.
                 </div>
             </td>
         </tr>
@@ -438,7 +439,7 @@
                 ¿Cuántos indicadores o íconos de seguridad inapropiados hay en el correo electrónico?
             </td>
             <td>
-                <select name="A1Q18" onchange="calculateScore()">
+                <select name="A1Q18">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -452,7 +453,7 @@
                 ?
                 <div class="tooltiptext">Se está evaluando cuántos de estos indicadores no apropiados están presentes en
                     el correo electrónico, lo que podría indicar un intento de engañar al destinatario para que crea
-                    falsamente en la autenticidad o seguridad del mensaje</div>
+                    falsamente en la autenticidad o seguridad del mensaje.</div>
             </td>
         </tr>
         <!-- Idioma y contenido -->
@@ -466,7 +467,7 @@
                 ¿Cuántas veces se utiliza lenguaje legal en el mensaje, como derechos de autor?
             </td>
             <td>
-                <select name="A1Q19" onchange="calculateScore()">
+                <select name="A1Q19">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -489,7 +490,7 @@
                 ¿Cuántos aspectos detallados que no son centrales para el contenido hay en el mensaje?
             </td>
             <td>
-                <select name="A1Q20" onchange="calculateScore()">
+                <select name="A1Q20">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -512,7 +513,7 @@
                 identificación personal o credenciales?
             </td>
             <td>
-                <select name="A1Q21" onchange="calculateScore()">
+                <select name="A1Q21">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -524,9 +525,8 @@
             </td>
             <td class="tooltip td-invisible">
                 ?
-                <div class="tooltiptext"> Identificar el número de solicitudes de información confidencial es crucial
-                    para evaluar el riesgo de un correo electrónico y su potencial para ser parte de un intento de
-                    phishing</div>
+                <div class="tooltiptext">Identificar el número de solicitudes de información confidencial es crucial
+                    para evaluar el riesgo de un correo electrónico y su potencial para ser parte de un intento de phishing.</div>
             </td>
         </tr>
         <!-- Pregunta 13 -->
@@ -535,7 +535,7 @@
                 ¿Cuántas veces el correo electrónico expresa presión de tiempo, incluidas las implícitas?
             </td>
             <td>
-                <select name="A1Q22" onchange="calculateScore()">
+                <select name="A1Q22">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -559,7 +559,7 @@
                 ¿Cuántas amenazas se incluyen en el mensaje, incluidas las amenazas implícitas?
             </td>
             <td>
-                <select name="A1Q23" onchange="calculateScore()">
+                <select name="A1Q23">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -587,7 +587,7 @@
                 ¿Cuántos llamamientos hace el correo electrónico para ayudar a los demás?
             </td>
             <td>
-                <select name="A1Q24" onchange="calculateScore()">
+                <select name="A1Q24">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -612,7 +612,7 @@
                 concurso, lotería, vacaciones gratis, etc.?
             </td>
             <td>
-                <select name="A1Q25" onchange="calculateScore()">
+                <select name="A1Q25">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -624,10 +624,10 @@
             </td>
             <td class="tooltip td-invisible">
                 ?
-                <div class="tooltiptext">DSe busca determinar cuántas veces el correo electrónico presenta propuestas
+                <div class="tooltiptext">Se busca determinar cuántas veces el correo electrónico presenta propuestas
                     que son demasiado buenas para ser ciertas, como la afirmación de haber ganado un concurso, una
                     lotería, o la oferta de vacaciones gratuitas, entre otros ejemplos. La frecuencia de tales
-                    afirmaciones exageradas puede ser un indicador de posibles intentos de phishing o engaños</div>
+                    afirmaciones exageradas puede ser un indicador de posibles intentos de phishing o engaños.</div>
             </td>
         </tr>
         <!-- Pregunta 17 -->
@@ -636,7 +636,7 @@
                 ¿Cuántas veces el correo electrónico ofrece algo personalizado e inesperado solo para usted?
             </td>
             <td>
-                <select name="A1Q26" onchange="calculateScore()">
+                <select name="A1Q26">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -648,7 +648,7 @@
             </td>
             <td class="tooltip td-invisible">
                 ?
-                <div class="tooltiptext"> La presencia de detalles personalizados y sorpresivos puede ser un indicador
+                <div class="tooltiptext">La presencia de detalles personalizados y sorpresivos puede ser un indicador
                     de autenticidad y legitimidad, mientras que la falta de personalización podría sugerir que el correo
                     electrónico es genérico o incluso parte de un intento de phishing, donde los atacantes envían
                     mensajes idénticos a múltiples destinatarios.</div>
@@ -660,7 +660,7 @@
                 ¿Cuántas veces el correo electrónico ofrece algo por tiempo limitado?
             </td>
             <td>
-                <select name="A1Q27" onchange="calculateScore()">
+                <select name="A1Q27">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -674,13 +674,13 @@
                 ?
                 <div class="tooltiptext">Este tipo de práctica es común en estrategias de marketing, donde se utiliza la
                     urgencia temporal para incentivar a los destinatarios a tomar medidas rápidas, como hacer una compra
-                    o participar en una oferta especial</div>
+                    o participar en una oferta especial.</div>
             </td>
         </tr>
     </table>
     <br>
     <div class="step-buttons">
-        <button type="button" data-goto="step-cues-result">Ver resultado parcial</button>
+        <button type="button" data-goto="step-cues-result" data-validate>Ver resultado parcial</button>
     </div>
     </section>
 
@@ -877,10 +877,10 @@
         <tr>
             <td>
                 ¿Qué tan aplicable es el correo electrónico a los procesos o prácticas del lugar de trabajo para el
-                publico objetivo?
+                público objetivo?
             </td>
             <td>
-                <select name="A2Q1" onchange="calculateScore()">
+                <select name="A2Q1">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="0">0</option>
                     <option value="2">2</option>
@@ -908,7 +908,7 @@
                 público objetivo?
             </td>
             <td>
-                <select name="A2Q2" onchange="calculateScore()">
+                <select name="A2Q2">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="0">0</option>
                     <option value="2">2</option>
@@ -937,7 +937,7 @@
                 al lugar de trabajo?
             </td>
             <td>
-                <select name="A2Q3" onchange="calculateScore()">
+                <select name="A2Q3">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="0">0</option>
                     <option value="2">2</option>
@@ -952,7 +952,7 @@
                     y tiene sentido en relación con otras circunstancias o eventos, incluso aquellos que no están
                     directamente vinculados al lugar de trabajo. Por ejemplo, si el correo electrónico hace referencia a
                     eventos externos o situaciones que no guardan relación con la actividad laboral normal, podría ser
-                    una señal de que el mensaje es sospechoso o potencialmente malicioso. </div>
+                    una señal de que el mensaje es sospechoso o potencialmente malicioso.</div>
             </td>
         </tr>
         <!-- Genera preocupación por las consecuencias de NO hacer clic -->
@@ -967,7 +967,7 @@
                 no hacer clic en los enlaces o archivos adjuntos?
             </td>
             <td>
-                <select name="A2Q4" onchange="calculateScore()">
+                <select name="A2Q4">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="0">0</option>
                     <option value="2">2</option>
@@ -997,7 +997,7 @@
                 ¿En qué medida el público objetivo ha recibido capacitación, advertencias u otra exposición específica relacionada con la premisa de este correo?
             </td>
             <td>
-                <select name="A2Q5" onchange="calculateScore()">
+                <select name="A2Q5">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="0">0</option>
                     <option value="2">2</option>
@@ -1014,17 +1014,10 @@
             </td>
         </tr>
     </table>
-    <br>
-    <p><b><i>
-                La suma de las puntuaciones de aplicabilidad para los elementos de alineación de premisas 1 a 4, MENOS
-                <br>
-                el puntaje de aplicabilidad para el elemento 5 de alineación de premisas es su calificación de
-                alineación de premisas.
-            </i></b></p><br>
-    <br>
+
     <div class="step-buttons">
         <button type="button" data-goto="step-cues-result">Volver</button>
-        <button type="button" data-goto="step-premise-result">Ver resultado parcial</button>
+        <button type="button" data-goto="step-premise-result" data-validate>Ver resultado parcial</button>
     </div>
     </section>
 

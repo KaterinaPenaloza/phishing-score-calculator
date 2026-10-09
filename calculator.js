@@ -31,7 +31,7 @@ const CATEGORY_BLOCKS = {
             { upTo: Infinity, label: 'Rango de señales altas' },
         ],
         descriptions: {
-            'Rango de señales bajas': 'Aquí no se proporcionan suficientes señales para que el correo electronico sea categorizado como malicioso o phishing.',
+            'Rango de señales bajas': 'Aquí no se proporcionan suficientes señales para que el correo electrónico sea categorizado como malicioso o phishing.',
             'Rango de señales medias': 'Este rango entrega señales claras pero no determinantes para considerarlo phishing.',
             'Rango de señales altas': 'Este rango presenta señales o indicios suficientes de que el correo es sospechoso o phishing.',
         },
@@ -46,7 +46,7 @@ const CATEGORY_BLOCKS = {
             { upTo: Infinity, label: 'Rango de señales altas' },
         ],
         descriptions: {
-            'Rango de señales bajas': 'Aquí no se proporcionan suficientes señales para que el correo electronico sea categorizado como malicioso o phishing.',
+            'Rango de señales bajas': 'Aquí no se proporcionan suficientes señales para que el correo electrónico sea categorizado como malicioso o phishing.',
             'Rango de señales medias': 'Este rango entrega señales claras pero no determinantes para considerarlo phishing.',
             'Rango de señales altas': 'Este rango presenta señales o indicios suficientes de que el correo es sospechoso o phishing.',
         },
@@ -228,9 +228,22 @@ function restart() {
     showStep('step-cues');
 }
 
+// Cantidad de preguntas sin responder en una sección
+function countUnanswered(section) {
+    return [...section.querySelectorAll('select')].filter(select => select.value === '').length;
+}
+
 document.addEventListener('click', event => {
     const gotoButton = event.target.closest('[data-goto]');
-    if (gotoButton) {
+        if (gotoButton) {
+        // Los botones con data-validate exigen que la sección actual esté completa
+        if (gotoButton.hasAttribute('data-validate')) {
+            const missing = countUnanswered(gotoButton.closest('section'));
+            if (missing > 0) {
+                alert(`Hay preguntas sin responder (${missing}).`);
+                return;
+            }
+        }
         showStep(gotoButton.dataset.goto);
     }
     if (event.target.closest('[data-action="restart"]')) {
