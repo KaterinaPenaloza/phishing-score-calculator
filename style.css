@@ -42,6 +42,12 @@ h3 {
     font-size: 18px;
 }
 
+/* Espaciado entre bloques */
+h2, p, table {
+    margin-bottom: 18px;
+}
+
+/****** Tabla *******/
 table {
     width: 80%;
     border-collapse: collapse;
@@ -87,12 +93,11 @@ td select {
 }
 
 
-/* Tooltip container */
+/******* Tooltip ******/
 .tooltip {
     position: relative;
 }
 
-/* Tooltip text */
 .tooltip .tooltiptext {
     visibility: hidden;
     width: 120px;
@@ -109,15 +114,11 @@ td select {
     visibility: visible;
 }
 
+/**** Resultados ****/
 .result-very-hard      { background-color: #f28b82; }
 .result-moderate       { background-color: #f5b061; }
 .result-moderate-easy  { background-color: #f0ee82; }
 .result-easy           { background-color: #a8d5a2; }
-
-/* Espaciado entre bloques */
-h2, p, table {
-    margin-bottom: 18px;
-}
 
 /* Colores de encabezado */
 .bg-dark          { background-color: #242424; }
@@ -128,3 +129,88 @@ h2, p, table {
 .bg-purple        { background-color: #6D00BB; }
 .bg-wine          { background-color: #801C5D; }
 .bg-plum          { background-color: #802665; }
+
+
+/********** Botones de navegación  *********/
+.step-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+/* Botón primario */
+.step-buttons button {
+    background-color: #0047FF;
+    border: 2px solid #0047FF;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0;
+    min-height: 44px;
+    padding: 8px 20px;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.step-buttons button:hover {
+    background-color: #0036C4;
+    border-color: #0036C4;
+}
+
+.step-buttons button:focus-visible {
+    outline: 3px solid #0047FF;
+    outline-offset: 2px;
+}
+
+/* Botón secundario */
+.step-buttons button:first-child:not(:only-child),
+.step-buttons button[data-action="restart"] {
+    background-color: #fff;
+    color: #0047FF;
+}
+
+.step-buttons button:first-child:not(:only-child):hover,
+.step-buttons button[data-action="restart"]:hover {
+    background-color: #E6EDFF;
+    border-color: #0047FF;
+}
+
+/* Flechas en los botones */
+.step-buttons button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Avanzar: flecha → */
+.step-buttons button::after {
+    content: "→";
+    font-size: 1.15em;
+    line-height: 1;
+}
+
+/* Volver: flecha ← */
+.step-buttons button:first-child:not(:only-child)::before {
+    content: "←";
+    font-size: 1.15em;
+    line-height: 1;
+}
+
+.step-buttons button:first-child:not(:only-child)::after {
+    content: none;
+}
+
+/* Reiniciar: flecha ↻ */
+.step-buttons button[data-action="restart"]::after {
+    content: "↻";
+}
