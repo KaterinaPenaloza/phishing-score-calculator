@@ -20,11 +20,7 @@
     --danger: #FF6B6B;
 }
 
-* {
-    margin: 1px;
-    padding: 1px;
-    box-sizing: border-box;
-}
+* { margin: 0px; padding: 0px; }
 
 body {
     max-width: 880px;
@@ -242,8 +238,9 @@ td select:focus-visible {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
     transition: opacity 0.15s;
 }
- 
-.tooltip:hover .tooltiptext {
+
+.tooltip:hover .tooltiptext,
+.tooltip:focus .tooltiptext {
     visibility: visible;
     opacity: 1;
 }
@@ -365,4 +362,31 @@ tr.unanswered select {
     color: var(--danger);
     text-align: right;
     margin-bottom: 12px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    body { padding: 0 12px 32px; }
+
+    h1 { font-size: 24px; }
+    h2 { font-size: 18px; padding: 8px 12px; }
+
+    p, td {
+        text-align: left;
+        hyphens: auto;
+    }
+
+    th, td {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    td select {
+        max-width: 110px;
+        font-size: 14px;
+    }
+
+    .tooltip .tooltiptext { width: 240px; }
+
+    .step-buttons button { flex: 1 1 100%; }
 }
