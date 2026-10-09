@@ -783,8 +783,8 @@
         <button type="button" data-goto="step-premise">Continuar</button>
     </div>
     </section>
-
     <section id="step-premise" hidden>
+
     <!-- Seccion A.2 -->
     <h2>A.2 Alineación de premisas</h2>
     <p>La alineación de las premisas es una medida de qué tan cerca coincide un correo electrónico con las funciones o
@@ -793,22 +793,17 @@
         cuanto más débil sea la alineación de las premisas de un correo electrónico, más fácil será detectarlo como
         phishing.
     </p>
-    <p>Calcular la alineación de las instalaciones.</p>
     <p>Para cada elemento de la tabla, asigne una puntuación de aplicabilidad de acuerdo con la escala de aplicabilidad
         presentada a continuación
     </p>
-
     <!-- Escala de aplicabilidad -->
-    <table>
-        <tr class="bg-dark">
-            <th colspan="2">Escala de aplicabilidad</th>
-        </tr>
-        <tr>
-            <th class="bg-dark">Escala de aplicabilidad</th>
-            <th class="bg-dark">Puntaje</th>
-        </tr>
-        <tbody id="scalePremise"></tbody>
-    </table>
+    <p>
+        <strong>8: </strong>Aplicación extrema, alineación o relevancia.<br>
+        <strong>6: </strong>Aplicación significativa.<br>
+        <strong>4: </strong>Aplicación moderada.<br>
+        <strong>2: </strong>Aplicación baja.<br>
+        <strong>0: </strong>No aplica o sin relevancia.
+    </p>
 
     <!-- Preguntas de Alineamiento de premisas -->
     <table id="questionsTableA2">
@@ -950,7 +945,7 @@
         </tr>
         <tr>
             <th class="bg-dark">Calificación de Alineación con la Premisa</th>
-            <th class="bg-dark">Categoría de Alineación con la Premisa</th>
+            <th class="bg-dark">Categoría de Alineación</th>
         </tr>
         <tr>
             <td>10 o menos</td>
@@ -971,7 +966,7 @@
         </tr>
         <tr>
             <th class="bg-wine">Puntaje</th>
-            <th class="bg-wine">Categoría de Alineación con la Premisa</th>
+            <th class="bg-wine">Categoría de Alineación</th>
             <th class="bg-wine"> Descripción </th>
         </tr>
         <tr>
@@ -992,7 +987,7 @@
     <h2>A.3 Detección de dificultad</h2>
     <p>La dificultad de detección del phishing humano es el resultado de aplicar la escala de phishing del NIST a un
         correo electrónico. <br>En otras palabras, se utiliza esta herramienta o método de medición proporcionado por la
-        NIST para determinar el grado<br>de percepción y conciencia que los destinatarios pueden tener al enfrentarse a
+        NIST para determinar el grado de percepción y conciencia que los destinatarios pueden tener al enfrentarse a
         correos electrónicos potencialmente maliciosos.</p>
 
     <table>
