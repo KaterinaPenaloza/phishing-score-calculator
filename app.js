@@ -2,16 +2,12 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Configurar el middleware para servir archivos estáticos
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Ruta principal que sirve el formulario
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
-
+// Puerto
 app.listen(port, () => {
     console.log(`Servidor escuchando en http://localhost:${port}`);
 });
