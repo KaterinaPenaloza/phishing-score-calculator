@@ -20,11 +20,7 @@
     --danger: #FF6B6B;
 }
 
-* {
-    margin: 1px;
-    padding: 1px;
-    box-sizing: border-box;
-}
+* { margin: 0px; padding: 0px; }
 
 body {
     max-width: 880px;
@@ -242,8 +238,9 @@ td select:focus-visible {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
     transition: opacity 0.15s;
 }
- 
-.tooltip:hover .tooltiptext {
+
+.tooltip:hover .tooltiptext,
+.tooltip:focus .tooltiptext {
     visibility: visible;
     opacity: 1;
 }
@@ -350,6 +347,11 @@ td select:focus-visible {
     content: "↻";
 }
 
+/* Descargar: ↓ */
+.step-buttons button[data-action="print"]::after {
+    content: "↓";
+}
+
 /**** Alerta de preguntas sin respondeer  *******/
 tr.unanswered > td:first-child::after {
     content: " *";
@@ -365,4 +367,129 @@ tr.unanswered select {
     color: var(--danger);
     text-align: right;
     margin-bottom: 12px;
+}
+
+
+.row-label {
+    text-align: center;
+    font-size: 14px;
+}
+
+
+
+/* Mobile */
+@media (max-width: 600px) {
+    body { padding: 0 12px 32px; }
+
+    h1 { font-size: 24px; }
+    h2 { font-size: 18px; padding: 8px 12px; }
+
+    p, td {
+        text-align: left;
+        hyphens: auto;
+    }
+
+    th, td {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    td select {
+        max-width: 110px;
+        font-size: 14px;
+    }
+
+    .tooltip .tooltiptext { width: 240px; }
+
+    .step-buttons button { flex: 1 1 100%; }
+}
+
+/********** Print ***********/
+/* Disclaimer y fecha */
+.print-only {
+    display: none;
+}
+
+.disclaimer {
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+
+.disclaimer p {
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+.disclaimer a {
+    color: var(--accent-soft);
+}
+
+/******** Impresión / PDF ********/
+@page {
+    size: A4;
+    margin: 14mm;
+}
+
+@media print {
+    /* Versión clara */
+    :root {
+        color-scheme: light;
+        --bg: #FFFFFF;
+        --surface: #FFFFFF;
+        --surface-2: #F1F3F7;
+        --border: #C9CED9;
+        --text: #16181D;
+        --text-strong: #000000;
+        --text-muted: #444444;
+        --accent-hover: #1F52D9;
+        --accent-soft: #1F52D9;
+    }
+
+    /* imprimir los colores de fondo */
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    /* Secciones de resultados */
+    section {
+        display: none;
+        animation: none;
+    }
+
+    #step-cues-result,
+    #step-premise-result,
+    #step-final {
+        display: block;
+    }
+
+    /* Elementos que no van en el PDF */
+    .step-buttons,
+    .validation-message {
+        display: none;
+    }
+
+    /* Fecha visible solo al imprimir */
+    .print-only {
+        display: block;
+        text-align: right;
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+
+    /* Encabezados de tabla con texto blanco sobre sus colores */
+    th {
+        color: #FFFFFF;
+    }
+
+    /* Evitar cortes entre páginas */
+    table {
+        break-inside: avoid;
+    }
+
+    h2 {
+        break-after: avoid;
+    }
+    
 }
