@@ -38,3 +38,30 @@ jobs:
     - name: Mostrar logs
       if: failure()
       run: docker logs app
+
+  publish:
+    runs-on: ubuntu-latest
+    needs: docker
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    steps:
+    - uses: actions/checkout@v4
+    - name: Iniciar sesión en Docker Hub
+      uses: docker/login-action@v4
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Generar nombre y etiquetas de la imagen
+      id: meta
+      uses: docker/metadata-action@v6
+      with:
+        images: katerinapenaloza7/calculadora-phishing
+        tags: |
+          type=sha
+          type=raw,value=latest
+    - name: Construir y publicar
+      uses: docker/build-push-action@v7
+      with:
+        context: .
+        push: true
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
